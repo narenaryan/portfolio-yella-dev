@@ -5,48 +5,10 @@ date = "2025-12-17"
 
 Here are some of my popular open source projects:
 
-<b>Whispr</b> (used by engineers at GitHub, AWS, Paramount, GlueOps)
-
-<img  src="https://raw.githubusercontent.com/cybrota/whispr/main/logo.png" height="100px">
-
-A multi-vault secret injection tool for safely injecting secrets into app environment. This is a security tool I built to help developers store their secrets in a cloud (AWS, Azure, GCP) and fetch them at run time and inject into an application.
-
-Project Link: [GitHub.com](https://github.com/cybrota/whispr)
-
-<b>Scharf</b>
-
-<img  src="https://raw.githubusercontent.com/cybrota/scharf/refs/heads/main/logo.png" height="100px">
-
-
-A SAST Tool to find out insecure GitHub actions in a repository and auto-fix it.
-
-Project Link: [GitHub.com](https://github.com/cybrota/scharf)
-
-<b> Prompt Markup Language (promptML) </b>
-
-<img  src="https://raw.githubusercontent.com/narenaryan/promptml/main/logo.png" height="100px">
-
-A new DSL language to write AI Prompts as code. I have designed the language and parser for it using Python.
-
-Parser Project Link: [GitHub.com](https://github.com/narenaryan/promptml)
-
-CLI Project Link: [GitHub.com](https://github.com/narenaryan/promptml-cli)
-
-<b> Recaller </b>
-
-<img  src="https://raw.githubusercontent.com/cybrota/recaller/main/logo.png" height="100px">
-
-A rapid fast, command-line app to recall your files & shell history with absolute precision
-
-Project Link: [GitHub.com](https://github.com/cybrota/recaller)
-
-<b> Vidura & Vidura Cloud </b>
-
-<img  src="https://vidura.ai/images/vidura-logo.svg" height="80px">
-
-
-A Django-based platform to store & test Prompts & compare LLM models.
-
-Cloud version has 2k+ users worldwide.
-
-Project Link: [GitHub.com](https://github.com/narenaryan/Vidura)
+| Project | Summary | Link |
+| --- | --- | --- |
+| <img src="https://raw.githubusercontent.com/cybrota/whispr/main/logo.png" height="72px" alt="Whispr logo"><br><b>Whispr</b><br><span>(used by engineers at GitHub, AWS, Paramount, GlueOps)</span> | A multi-vault secret injection tool for safely injecting secrets into app environments across AWS, Azure, and GCP. | [GitHub.com](https://github.com/cybrota/whispr) |
+| <img src="https://raw.githubusercontent.com/cybrota/scharf/refs/heads/main/logo.png" height="72px" alt="Scharf logo"><br><b>Scharf</b> | A SAST tool that finds insecure GitHub Actions in a repository and auto-fixes them. | [GitHub.com](https://github.com/cybrota/scharf) |
+| <img src="https://raw.githubusercontent.com/narenaryan/promptml/main/logo.png" height="72px" alt="promptML logo"><br><b>Prompt Markup Language (promptML)</b> | A DSL to write AI prompts as code. Designed and implemented the language and parser in Python. | [Parser](https://github.com/narenaryan/promptml) · [CLI](https://github.com/narenaryan/promptml-cli) |
+| <img src="https://raw.githubusercontent.com/cybrota/recaller/main/logo.png" height="72px" alt="Recaller logo"><br><b>Recaller</b> | A fast command‑line app to recall files and shell history with precision. | [GitHub.com](https://github.com/cybrota/recaller) |
+| <img src="https://vidura.ai/images/vidura-logo.svg" height="56px" alt="Vidura logo"><br><b>Vidura & Vidura Cloud</b> | A Django-based platform to store and test prompts and compare LLM models. Cloud version has 2k+ users worldwide. | [GitHub.com](https://github.com/narenaryan/Vidura) |
