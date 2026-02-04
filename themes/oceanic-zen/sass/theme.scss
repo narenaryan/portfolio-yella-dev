@@ -1,6 +1,6 @@
 @import "colors";
 
-$font: "IBM Plex Sans", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+$font: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "IBM Plex Sans", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 $font-mono: "Iosevka", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $padding: 8px;
 $page-bg-top: #fdfdf9;
@@ -48,9 +48,10 @@ $panel-border: #e6e9ee;
 
 body {
     font: 100% $font;
+    font-weight: 400;
     background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
     color: var(--text);
-    line-height: 1.7rem;
+    line-height: 1.6;
     font-size: 17px;
 }
 
@@ -192,7 +193,7 @@ main {
 
 article,
 main {
-    max-width: 74ch;
+    max-width: 70ch;
 }
 
 main > *:first-child {
