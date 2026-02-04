@@ -1,32 +1,7 @@
 @import "colors";
 
-@font-face {
-    font-family: 'Iosevka';
-    src: url("/fonts/iosevka-regular.woff2");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Iosevka';
-    src: url("/fonts/iosevka-italic.woff2");
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Iosevka';
-    src: url("/fonts/iosevka-bold.woff2");
-    font-weight: bold;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Iosevka';
-    src: url("/fonts/iosevka-bolditalic.woff2");
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-$font: "Iosevka", sans-serif;
-$font-mono: "Iosevka", monospace;
+$font: "IBM Plex Sans", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+$font-mono: "Iosevka", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $padding: 8px;
 $page-bg-top: #fdfdf9;
 $page-bg-bottom: #f3f4f1;
