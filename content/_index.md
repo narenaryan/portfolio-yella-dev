@@ -19,16 +19,22 @@ weight = 0
     </svg>
     GitHub
   </a>
-  <a href="https://x.com/Narenarya3">
+  <a href="https://www.linkedin.com/in/narenarya/">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="currentColor" d="M18.9 2H22l-6.8 7.8L22.9 22h-6.2l-4.8-7-6.1 7H2.7l7.2-8.3L1.6 2h6.3l4.4 6.4L18.9 2Zm-1.1 18h1.7L7.2 4h-1.8l12.4 16Z"/>
+      <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.98h4V24h-4V8.98Zm7.5 0h3.84v2.06h.05c.53-1.01 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V24h-4v-6.93c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.66V24h-4V8.98Z"/>
     </svg>
-    X / Twitter
+    LinkedIn
   </a>
   <a href="https://medium.com/@narenarya">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M13.54 12c0 3.315-2.69 6-6 6s-6-2.685-6-6 2.69-6 6-6 6 2.685 6 6Zm6.46 0c0 3.122-1.343 5.655-3 5.655s-3-2.533-3-5.655 1.343-5.655 3-5.655 3 2.533 3 5.655ZM24 12c0 2.796-.477 5.06-1.065 5.06-.588 0-1.065-2.264-1.065-5.06 0-2.796.477-5.06 1.065-5.06.588 0 1.065 2.264 1.065 5.06Z"/>
     </svg>
     Medium
+  </a>
+  <a href="https://x.com/Narenarya3">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M18.9 2H22l-6.8 7.8L22.9 22h-6.2l-4.8-7-6.1 7H2.7l7.2-8.3L1.6 2h6.3l4.4 6.4L18.9 2Zm-1.1 18h1.7L7.2 4h-1.8l12.4 16Z"/>
+    </svg>
+    X / Twitter
   </a>
 </div>
