@@ -1,5 +1,6 @@
 # The URL the site will be built for
 base_url = "https://www.yella.dev"
+description = "Personal site of Naren Yellavula — Staff Cloud Security Engineer, writer, and builder."
 theme = "oceanic-zen"
 
 [search]
@@ -20,3 +21,4 @@ dark_theme = "github-dark"
 [extra]
 # Put all your custom variables here
 author = "Naren Yellavula"
+social_image = "https://d3bphourhbt2ew.cloudfront.net/images/nyell-crop.jpg"
