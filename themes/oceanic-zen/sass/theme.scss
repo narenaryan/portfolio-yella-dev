@@ -367,9 +367,9 @@ header .header-right li {
     border-color: var(--blockquote-border);
 }
 
-.theme-toggle svg {
-    width: 18px;
-    height: 18px;
+.theme-toggle i {
+    font-size: 18px;
+    line-height: 1;
     display: block;
 }
 
@@ -413,6 +413,30 @@ header .header-right li {
 
 article {
     padding-bottom: 8px;
+}
+
+article.post {
+    max-width: 70ch;
+}
+
+article.post h2 {
+    margin-top: 28px;
+}
+
+article.post p {
+    font-size: 18px;
+    line-height: 1.85;
+    margin-bottom: 1.1rem;
+}
+
+article.post ul,
+article.post ol {
+    margin: 1rem 0;
+    padding-left: 1.6rem;
+}
+
+article.post li {
+    margin: 0.5rem 0;
 }
 
 .home-hero {

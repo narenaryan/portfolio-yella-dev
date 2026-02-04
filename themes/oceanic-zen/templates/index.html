@@ -9,6 +9,8 @@
         <meta name="description" content="{{ config.description }}">
         {% endif %}
 
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ config.base_url }}">
         <meta property="og:title" content="{{ config.title }}">
@@ -102,12 +104,8 @@
                         {% endif %}
                         <li class="nav">
                             <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path fill="currentColor" d="M21 15.5A9 9 0 0 1 8.5 3a7 7 0 1 0 12.5 12.5Z"/>
-                                </svg>
-                                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1Zm10-8a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1ZM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1Zm13.78 6.78a1 1 0 0 1 0 1.42l-1.42 1.42a1 1 0 1 1-1.42-1.42l1.42-1.42a1 1 0 0 1 1.42 0ZM7.06 7.06a1 1 0 0 1 0 1.42L5.64 9.9A1 1 0 1 1 4.22 8.5l1.42-1.42a1 1 0 0 1 1.42 0Zm12.72-2.84a1 1 0 0 1 0 1.42l-1.42 1.42a1 1 0 0 1-1.42-1.42l1.42-1.42a1 1 0 0 1 1.42 0ZM7.06 16.94a1 1 0 0 1 0 1.42L5.64 19.78a1 1 0 1 1-1.42-1.42l1.42-1.42a1 1 0 0 1 1.42 0Z"/>
-                                </svg>
+                                <i class="bx bx-moon icon-moon" aria-hidden="true"></i>
+                                <i class="bx bx-sun icon-sun" aria-hidden="true"></i>
                             </button>
                         </li>
                       </ul>

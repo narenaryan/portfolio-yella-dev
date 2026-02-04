@@ -2,6 +2,7 @@
 title = "My Failure Resume"
 slug = "failure-resume"
 date = "2025-06-22"
+extra.class = "post-failure-resume"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/baybridge_bw.jpg" />
@@ -16,7 +17,7 @@ One thing is for sure. I valued curiosity, problem-solving & networking from the
 
 This article presents some of those failures I encountered at work, and how I overcame them. This is an honest self-critique, shared publicly to break free from my bubble of success.
 
-## <ul>Failure 1</ul> Spend too much time learning on the job
+## Failure 1: Spend too much time learning on the job
 
 At the beginning of my career, I wasn’t a quick learner. In the teams I was part of, there were amazing and fearless learners. Even my doing skill has a few shortcomings in comparison to them. I was strong in theory but weak in practice.
 
@@ -32,7 +33,7 @@ There are a few initiatives that helped me improve in that phase:
 - <i>Repeating the patterns used by seniors</i>
 - <i>Constantly reviewing myself & setting goals</i>
 
-## <ul>Failure 2</ul> Spend too much time doing the job
+## Failure 2:  Spend too much time doing the job
 
 There were times when my tasks slipped through multiple sprints, likely because I blindly accepted poorly estimated tasks and didn’t ask questions during backlog grooming sessions.
 
@@ -40,39 +41,40 @@ I mistakenly believed our backlog was meticulously groomed and that completing t
 
 Beyond inaccurate estimations, I overlooked tasks that required additional communication with other teams. This wasted valuable sprint time because I had to find information myself that a team member might already have known.
 
-<b>>What Helped Me?</b>
+<b>What Helped Me?</b>
 
 There are a couple of things that assisted me in getting better here:
 
-Step out of my comfort zone and ask the right questions
-Put extra thought at the beginning of the task
+1. Step out of my comfort zone and ask the right questions
+2. Put extra thought at the beginning of the task
+
 After making those tweaks, I saw a significant boost in my velocity.
 
 
-### <ul>Failure 3</ul> Release code without testing it thoroughly
+### Failure 3: Release code without testing it thoroughly
 
 Like many software developers, I had a lazy habit of assuming things would work when I made small code changes. I was wrong 90% of the time.
 
 How did that happen? I used to unconsciously skip manual testing of code and system functionality. I learned the hard way that making tiny changes to a massive codebase can cause unpredictable regressions, making it essential to test every change before shipping software. End-to-end testing can still break because systems work charms in isolation, but when integrated they fall like ninepins.
 
-<b>>What Helped Me?</b>
+<b> What Helped Me?</b>
 Knowing that systems always need additional testing after changes, I now test everything beforehand and tell myself: “Assume your system is broken unless confirmed through testing!”
 
 Also, <b>”Write a lot of unit tests”</b>
 
-### <ul>Failure 4</ul> Deploying code into production on the Fridays
+### Failure 4: Deploying code into production on the Fridays
 
 I did a few Friday deployments which ruined my co-worker’s weekend and mine too. Some of this urge to ship may manifested from the delays in the sprint work (Failure 2).
 
 Shipping code is fun, but breaking things for customers during the weekend when everyone’s unavailable is a nightmare. I still get that urge sometimes, but with a decade of industry experience, I know some things are better postponed — and Friday releases are definitely one of them.
 
-<b>>What Helped Me?</b>
+<b> What Helped Me?</b>
 
 1. Not deploying on Fridays unless the team approves it
 2. Not doing any major code merges before going on a vacation
 3. Being empathetic about my colleagues & their time
 
-## <ul>Failure 5</ul> Restarting a production database mistakenly
+## Failure 5: Restarting a production database mistakenly
 I once mistakenly restarted a production PostgreSQL database because I had multiple AWS console tabs open (dev, test, and production) and clicked on the wrong tab. This happened because I lost concentration during my end-of-day routine of stopping the database server in the test environment.
 
 Luckily, it was just a simple restart of an AWS RDS instance — no data was lost and no requests were dropped — but I still remember that heart-stopping moment when I realized I was working on a production database.
@@ -83,7 +85,7 @@ After that incident, I installed a Google Chrome extension [AWS-Colorize](https:
 
 Nowadays, I triple-check while operating on a production account. I developed the habit of staying alert to keep myself and others safe while performing destructive operations like writing and deleting data during complex migrations. Resource isolation is also another way to keep accidental stepping of production workloads.
 
-## <ul>Failure 6</ul> Getting stuck in the head for way too long
+## Failure 6: Getting stuck in the head for way too long
 
 Four years ago, during a daily standup meeting, I experienced a complete mental blank when my turn came and couldn’t say a single word about my current task for several minutes. My colleagues listened in silence, clearly struggling with the awkward situation. I picked a task and went into a rabbit hole of low-level details, missing the top-level goal completely which was caused by brain fade.
 
@@ -91,13 +93,13 @@ Maybe I was building up hidden mental fatigue over a long period without realizi
 
 It was a very awkward moment. I could have prepared for the meeting in advance, knowing I had to report during the call, but I failed to do so.
 
-<b>What Helped Me?</b>
+<b> What Helped Me?</b>
 Here are the mental adjustments I made thereafter:
 
 1. <i>Be prepared for important meetings</i>
 2. <i>Don’t go through endless rabbit holes, know when to stop and seek help</i>
 
-## <ul>Failure 7</ul> Laying out grand plans but not executing them
+## Failure 7: Laying out grand plans but not executing them
 
 In my previous companies, I consistently brought fresh thoughts and new ideas to every sprint review meeting. Even in 1:1 with managers, I shared many improvements for ongoing efforts. This is a welcoming thing because I am contributing where I was expected to.
 
