@@ -490,6 +490,32 @@ article {
     color: var(--link-hover);
 }
 
+.post-date {
+    color: var(--muted);
+    font-size: 13px;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.post-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.post-meta .date {
+    color: inherit;
+    font-size: inherit;
+}
+
+.post-author::before {
+    content: "•";
+    margin-right: 8px;
+    color: var(--muted);
+}
+
 @media (max-width: 900px) {
     .home-hero {
         flex-direction: column;
