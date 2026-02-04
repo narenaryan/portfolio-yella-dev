@@ -3,7 +3,7 @@ title = "My Failure Resume"
 slug = "failure-resume"
 +++
 
-<img style="width: 100vw;" src="https://d3bphourhbt2ew.cloudfront.net/images/baybridge_bw.jpg" />
+<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/baybridge_bw.jpg" />
 
 A resume typically showcases successful projects and achievements. A failure resume does the opposite — it lists failures to show the battle scars from software engineering. Software engineering isn’t for the faint of heart, and I’ve had my fair share of failures over the past decade.
 
