@@ -356,6 +356,8 @@ img {
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
+    height: auto;
+    object-fit: contain;
 }
 
 header .header-right ul {
