@@ -1,6 +1,7 @@
 +++
 title = "My Failure Resume"
 slug = "failure-resume"
+date = "2025-06-22"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/baybridge_bw.jpg" />

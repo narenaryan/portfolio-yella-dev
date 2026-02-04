@@ -21,6 +21,9 @@
                 <a href="{{ p.permalink | safe}}">
                     {{ p.title }}
                 </a>
+                {% if section.title == "Blog" and p.date %}
+                <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+                {% endif %}
             </li>
         {% endfor %}
         </ul>

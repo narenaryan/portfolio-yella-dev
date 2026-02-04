@@ -1,6 +1,7 @@
 +++
 title = "Read my past writings on Medium and Substack"
 slug = "read-my-past-writings"
+date = "2025-12-21"
 +++
 
 Hi, I am transitioning myself from Medium to this website to create custom look and feel for my writings.
