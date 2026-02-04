@@ -550,6 +550,30 @@ article.post li {
     color: var(--muted);
 }
 
+.rss-ribbon {
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 0 16px 0;
+    padding: 6px 10px;
+    background: #ff6600;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    gap: 6px;
+}
+
+.rss-ribbon:hover {
+    color: #ffffff;
+    filter: brightness(0.95);
+}
+
+.rss-ribbon:visited {
+    color: #ffffff;
+}
+
 @media (max-width: 900px) {
     .home-hero {
         flex-direction: column;
