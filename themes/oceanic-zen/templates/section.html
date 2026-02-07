@@ -72,13 +72,20 @@
                         {% endif %}
                         <div class="post-card__content">
                             <div class="post-card__title">{{ p.title }}</div>
-                            {% if section.title == "Blog" and p.date %}
-                            <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
-                            {% endif %}
-                        </div>
-                    </a>
-                </li>
-            {% endfor %}
+                        {% if section.title == "Blog" and p.date %}
+                        <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+                        {% endif %}
+                        {% if section.title == "Blog" %}
+                            <span class="post-meta-inline">
+                                {% if p.reading_time %}{{ p.reading_time }} min read{% endif %}
+                                {% if p.reading_time and p.word_count %} · {% endif %}
+                                {% if p.word_count %}{{ p.word_count }} words{% endif %}
+                            </span>
+                        {% endif %}
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
             </ul>
         {% endif %}
     {% endif %}

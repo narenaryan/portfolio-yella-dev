@@ -880,6 +880,17 @@ article.post li {
     color: var(--muted);
 }
 
+.post-meta__item::before {
+    content: "•";
+    margin-right: 8px;
+    color: var(--muted);
+}
+
+.post-meta-inline {
+    color: var(--muted);
+    font-size: 12px;
+}
+
 .rss-ribbon {
     display: inline-flex;
     align-items: center;

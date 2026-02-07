@@ -10,6 +10,9 @@
                 {{ page.date | date(format="%d %b %Y") }}
             </time>
             <span class="post-author">{{ page.author | default(value=config.extra.author) }}</span>
+            {% if page.reading_time %}
+                <span class="post-meta__item">{{ page.reading_time }} min read</span>
+            {% endif %}
         </div>
         {% if page.taxonomies %}
             <div class="post-tags">
