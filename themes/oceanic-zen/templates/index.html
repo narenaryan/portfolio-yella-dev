@@ -144,36 +144,65 @@
                     <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
                 </div>
                 <div class="header-right">
+                    {% set current_path_val = current_path | default(value="/") %}
+                    {% set current_parts = current_path_val | split(pat="/") %}
+                    {% set current_root = "" %}
+                    {% if current_parts | length > 1 %}
+                        {% set current_root = current_parts[1] %}
+                    {% endif %}
+                    {% set current_sub = "" %}
+                    {% if current_parts | length > 2 %}
+                        {% set current_sub = current_parts[2] %}
+                    {% endif %}
+                    {% set is_home = current_path_val == "/" %}
+                    {% set is_blog = current_root == "blog" %}
+                    {% set is_about = current_root == "about" and current_sub == "" %}
+                    {% set is_books = current_root == "about" and current_sub == "books" %}
+                    {% set is_projects = current_root == "about" and current_sub == "projects" %}
+                    {% set is_photography = current_root == "photography" %}
                     <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
                       <ul>
                         <li class="nav">
-                            <a itemprop="url" href="{{ config.base_url }}">
+                            <a itemprop="url" class="nav-link{% if is_home %} is-active{% endif %}" href="{{ config.base_url }}">
                                 <span itemprop="name">Home</span>
                             </a>
                         </li>
-                        {% set index = get_section(path="_index.md") %}
-                        {% for s in index.subsections %}
-                            {% set subsection = get_section(path=s) %}
-                            {% if subsection.title != "Other" %}
-                            <li class="nav">
-                                <a itemprop="url" href="{{ subsection.permalink | safe}}">
-                                    <span itemprop="name">{{ subsection.title }}</span>
-                                </a>
-                            </li>
-                            {% endif %}
-                        {% endfor %}
+                        {% set blog = get_section(path="blog/_index.md") %}
+                        {% set about = get_section(path="about/_index.md") %}
+                        {% set photography = get_section(path="photography/_index.md") %}
                         {% set books = get_page(path="about/books.md") %}
                         {% set projects = get_page(path="about/projects.md") %}
+                        {% if blog %}
                         <li class="nav">
-                            <a itemprop="url" href="{{ books.permalink | safe }}">
+                            <a itemprop="url" class="nav-link{% if is_blog %} is-active{% endif %}" href="{{ blog.permalink | safe}}">
+                                <span itemprop="name">Blog</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if about %}
+                        <li class="nav">
+                            <a itemprop="url" class="nav-link{% if is_about %} is-active{% endif %}" href="{{ about.permalink | safe}}">
+                                <span itemprop="name">About</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li class="nav">
+                            <a itemprop="url" class="nav-link{% if is_books %} is-active{% endif %}" href="{{ books.permalink | safe }}">
                                 <span itemprop="name">Books</span>
                             </a>
                         </li>
                         <li class="nav">
-                            <a itemprop="url" href="{{ projects.permalink | safe }}">
+                            <a itemprop="url" class="nav-link{% if is_projects %} is-active{% endif %}" href="{{ projects.permalink | safe }}">
                                 <span itemprop="name">Projects</span>
                             </a>
                         </li>
+                        {% if photography %}
+                        <li class="nav">
+                            <a itemprop="url" class="nav-link{% if is_photography %} is-active{% endif %}" href="{{ photography.permalink | safe}}">
+                                <span itemprop="name">Photography</span>
+                            </a>
+                        </li>
+                        {% endif %}
                         {% if config.extra.github %}
                         <li class="nav">
                             <a itemprop="url" href="https://github.com/{{ config.extra.github }}">

@@ -440,6 +440,35 @@ h6:hover .zola-anchor {
     margin-left: 6px;
 }
 
+.section-intro {
+    color: var(--muted);
+    margin: 0 0 1rem 0;
+}
+
+.photo-wall {
+    display: grid;
+    gap: 28px;
+}
+
+.photo-bleed {
+    margin: 0;
+}
+
+.photo-bleed img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.photo-bleed figcaption {
+    max-width: 70ch;
+    margin: 10px auto 0 auto;
+    padding: 0 20px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
 p {
     margin: 0 0 1rem 0;
 }
@@ -665,6 +694,22 @@ header .header-right ul {
 
 header .header-right li {
     margin: 0;
+}
+
+header .header-right .nav-link {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+header .header-right .nav-link:hover {
+    color: var(--link-hover);
+}
+
+header .header-right .nav-link.is-active {
+    color: var(--text);
+    font-weight: 700;
+    border-bottom: 2px solid var(--link);
+    padding-bottom: 2px;
 }
 
 .theme-toggle {
@@ -902,5 +947,9 @@ article.post li {
 
     .post-toc {
         padding: 10px 12px;
+    }
+
+    .photo-bleed figcaption {
+        padding: 0 16px;
     }
 }
