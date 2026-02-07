@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block main %}
+    <h1>{{ taxonomy.name | title }}: {{ term.name }}</h1>
+    <div class="border"></div>
+    <ul class="post-list">
+    {% for p in term.pages %}
+        <li class="post-card">
+            <a class="post-card__link" href="{{ p.permalink | safe}}">
+                <div class="post-card__content">
+                    <div class="post-card__title">{{ p.title }}</div>
+                    {% if p.date %}
+                    <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+                    {% endif %}
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock main %}

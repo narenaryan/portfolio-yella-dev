@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block main %}
+    <h1>{{ taxonomy.name | title }}</h1>
+    <div class="border"></div>
+    <ul class="taxonomy-list">
+    {% for term in terms %}
+        <li class="taxonomy-item">
+            <a href="{{ term.permalink | safe }}">{{ term.name }}</a>
+            <span class="taxonomy-count">({{ term.pages | length }})</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock main %}

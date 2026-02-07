@@ -11,6 +11,22 @@
             </time>
             <span class="post-author">{{ page.author | default(value=config.extra.author) }}</span>
         </div>
+        {% if page.taxonomies %}
+            <div class="post-tags">
+                {% if page.taxonomies.categories %}
+                    <span class="post-tags__label">Categories:</span>
+                    {% for cat in page.taxonomies.categories %}
+                        <a class="post-tag" href="{{ get_taxonomy_url(kind="categories", name=cat) }}">{{ cat }}</a>
+                    {% endfor %}
+                {% endif %}
+                {% if page.taxonomies.tags %}
+                    <span class="post-tags__label">Tags:</span>
+                    {% for tag in page.taxonomies.tags %}
+                        <a class="post-tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
     <div itemprop="articleBody">
         {{ page.content | safe }}

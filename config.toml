@@ -9,12 +9,20 @@ index_format = "fuse_javascript" # or "fuse_json"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+# Copy the root-level fonts/ directory into the site output.
+static_path = ["static", "fonts"]
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
 # Whether to generate a feed for the site
 generate_feeds = true
 feed_filenames = ["rss.xml"]
+
+taxonomies = [
+    { name = "tags", paginate_by = 20, feed = true },
+    { name = "categories", paginate_by = 20, feed = true }
+]
 
 [markdown]
 

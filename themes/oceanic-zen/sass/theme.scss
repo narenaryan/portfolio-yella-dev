@@ -1,7 +1,80 @@
 @import "colors";
 
-$font: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "IBM Plex Sans", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-$font-mono: "Iosevka", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+@font-face {
+    font-family: "Halvar Mittel";
+    src: url("fonts/HalvarMittel-Rg.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Halvar Mittel";
+    src: url("fonts/HalvarMittel-Bd.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Halvar Mittel";
+    src: url("fonts/HalvarMittel-RgSlanted.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Halvar Mittel";
+    src: url("fonts/HalvarMittel-BdSlanted.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hermann";
+    src: url("fonts/Hermann-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("fonts/TexGyreCursor-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("fonts/TexGyreCursor-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("fonts/TexGyreCursor-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("fonts/TexGyreCursor-Bold-Italic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+$font: "Halvar Mittel", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+$font-head: "Hermann", "Halvar Mittel", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+$font-mono: "TeX Gyre Cursor", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $padding: 8px;
 $page-bg-top: #fdfdf9;
 $page-bg-bottom: #f3f4f1;
@@ -12,7 +85,7 @@ $panel-border: #e6e9ee;
     color-scheme: light;
     --bg-top: #fdfdf9;
     --bg-bottom: #f3f4f1;
-    --text: #1a1a1a;
+    --text: #000000;
     --muted: #a7adba;
     --link: #0b6fa7;
     --link-hover: #1d4ed8;
@@ -173,12 +246,108 @@ h6 {
     margin: 12px 0 6px 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo {
+    font-family: $font-head;
+}
+
 p {
     margin: 0 0 1rem 0;
 }
 
 li {
     margin: 0.25rem 0;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.post-card {
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    background: var(--panel-bg);
+    overflow: hidden;
+}
+
+.post-card__link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    color: inherit;
+}
+
+.post-card__link:hover .post-card__title {
+    color: var(--link-hover);
+}
+
+.post-card__image {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex: 0 0 auto;
+}
+
+.post-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.post-card__title {
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+}
+
+.post-tags__label {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.post-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    color: inherit;
+}
+
+.taxonomy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.taxonomy-item a {
+    font-weight: 700;
+}
+
+.taxonomy-count {
+    color: var(--muted);
+    margin-left: 6px;
 }
 
 p {
@@ -582,5 +751,15 @@ article.post li {
 
     .home-hero-media {
         width: 100%;
+    }
+
+    .post-card__link {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .post-card__image {
+        width: 100%;
+        height: 160px;
     }
 }

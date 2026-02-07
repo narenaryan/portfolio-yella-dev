@@ -51,7 +51,7 @@ There are a couple of things that assisted me in getting better here:
 After making those tweaks, I saw a significant boost in my velocity.
 
 
-### Failure 3: Release code without testing it thoroughly
+## Failure 3: Release code without testing it thoroughly
 
 Like many software developers, I had a lazy habit of assuming things would work when I made small code changes. I was wrong 90% of the time.
 
@@ -62,7 +62,7 @@ Knowing that systems always need additional testing after changes, I now test ev
 
 Also, <b>”Write a lot of unit tests”</b>
 
-### Failure 4: Deploying code into production on the Fridays
+## Failure 4: Deploying code into production on the Fridays
 
 I did a few Friday deployments which ruined my co-worker’s weekend and mine too. Some of this urge to ship may manifested from the delays in the sprint work (Failure 2).
 

@@ -21,15 +21,41 @@
             <span>RSS</span>
         </a>
         {% endif %}
-        <ul>
+        <ul class="post-list">
         {% for p in section.pages %}
-            <li>
-                <a href="{{ p.permalink | safe}}">
-                    {{ p.title }}
-                </a>
-                {% if section.title == "Blog" and p.date %}
-                <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+            {% set preview_src = "" %}
+            {% if section.title == "Blog" %}
+                {% if p.extra.preview_image %}
+                    {% set preview_src = p.extra.preview_image %}
+                {% else %}
+                    {% set parts = p.content | split(pat='src="') %}
+                    {% if parts | length > 1 %}
+                        {% set preview_src = (parts[1] | split(pat='"') | first) %}
+                    {% else %}
+                        {% set parts = p.content | split(pat="src='") %}
+                        {% if parts | length > 1 %}
+                            {% set preview_src = (parts[1] | split(pat="'") | first) %}
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
+            {% endif %}
+            <li class="post-card">
+                <a class="post-card__link" href="{{ p.permalink | safe}}">
+                    {% if section.title == "Blog" and preview_src != "" %}
+                        <img
+                            class="post-card__image"
+                            src="{{ preview_src }}"
+                            alt="{{ p.extra.preview_image_alt | default(value=p.title) }}"
+                            loading="lazy"
+                        >
+                    {% endif %}
+                    <div class="post-card__content">
+                        <div class="post-card__title">{{ p.title }}</div>
+                        {% if section.title == "Blog" and p.date %}
+                        <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+                        {% endif %}
+                    </div>
+                </a>
             </li>
         {% endfor %}
         </ul>

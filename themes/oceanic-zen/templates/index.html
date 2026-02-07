@@ -5,34 +5,118 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {% if config.description -%}
-        <meta name="description" content="{{ config.description }}">
+        {% set is_page = page is defined %}
+        {% set is_section = section is defined %}
+        {% set site_title = config.title | default(value="") %}
+        {% set meta_description = config.description %}
+        {% if is_page %}
+            {% if page.summary %}
+                {% set meta_description = page.summary | striptags | trim %}
+            {% elif page.description %}
+                {% set meta_description = page.description | striptags | trim %}
+            {% endif %}
+        {% elif is_section %}
+            {% if section.description %}
+                {% set meta_description = section.description | striptags | trim %}
+            {% elif section.summary %}
+                {% set meta_description = section.summary | striptags | trim %}
+            {% endif %}
+        {% endif %}
+        {% if meta_description -%}
+        <meta name="description" content="{{ meta_description }}">
         {% endif %}
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/atkinson-hyperlegible-next@5.2.7/index.css">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
         <script data-goatcounter="https://yelladev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ config.base_url }}">
-        <meta property="og:title" content="{{ config.title }}">
-        {% if config.description -%}
-        <meta property="og:description" content="{{ config.description }}">
+        {% set canonical_url = config.base_url %}
+        {% if is_page %}
+            {% set canonical_url = page.permalink %}
+        {% elif is_section %}
+            {% set canonical_url = section.permalink %}
         {% endif %}
-        {% if config.extra.social_image -%}
-        <meta property="og:image" content="{{ config.extra.social_image }}">
+        <link rel="canonical" href="{{ canonical_url }}">
+
+        {% set og_title = site_title %}
+        {% if is_page %}
+            {% set og_title = page.title ~ " | " ~ site_title %}
+        {% elif is_section %}
+            {% set og_title = section.title ~ " | " ~ site_title %}
+        {% endif %}
+
+        {% set og_image = config.extra.social_image %}
+        {% if is_page %}
+            {% if page.extra.preview_image %}
+                {% set og_image = page.extra.preview_image %}
+            {% else %}
+                {% set parts = page.content | split(pat='src="') %}
+                {% if parts | length > 1 %}
+                    {% set og_image = (parts[1] | split(pat='"') | first) %}
+                {% else %}
+                    {% set parts = page.content | split(pat="src='") %}
+                    {% if parts | length > 1 %}
+                        {% set og_image = (parts[1] | split(pat="'") | first) %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+        <meta property="og:type" content="{% if is_page %}article{% else %}website{% endif %}">
+        <meta property="og:url" content="{{ canonical_url }}">
+        <meta property="og:title" content="{{ og_title }}">
+        {% if meta_description -%}
+        <meta property="og:description" content="{{ meta_description }}">
+        {% endif %}
+        {% if og_image -%}
+        <meta property="og:image" content="{{ og_image }}">
         {% endif %}
 
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ config.title }}">
-        {% if config.description -%}
-        <meta name="twitter:description" content="{{ config.description }}">
+        <meta name="twitter:title" content="{{ og_title }}">
+        {% if meta_description -%}
+        <meta name="twitter:description" content="{{ meta_description }}">
         {% endif %}
-        {% if config.extra.social_image -%}
-        <meta name="twitter:image" content="{{ config.extra.social_image }}">
+        {% if og_image -%}
+        <meta name="twitter:image" content="{{ og_image }}">
         {% endif %}
 
-        <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+        {% if is_page and page.date %}
+        {% set author_name = page.author | default(value=config.extra.author) %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": {{ page.title | json_encode }},
+            "description": {{ meta_description | json_encode }},
+            "datePublished": {{ page.date | date(format="%Y-%m-%d") | json_encode }},
+            "author": {
+                "@type": "Person",
+                "name": {{ author_name | json_encode }}
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": {{ site_title | json_encode }}
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": {{ canonical_url | json_encode }}
+            }{% if og_image %},
+            "image": {{ og_image | json_encode }}{% endif %}
+        }
+        </script>
+        {% endif %}
+
+        <title>
+            {% block title %}
+                {% if is_page %}
+                    {{ page.title }} | {{ site_title }}
+                {% elif is_section %}
+                    {{ section.title }} | {{ site_title }}
+                {% else %}
+                    {{ site_title }}
+                {% endif %}
+            {% endblock title %}
+        </title>
 
         <script>
             (function() {
