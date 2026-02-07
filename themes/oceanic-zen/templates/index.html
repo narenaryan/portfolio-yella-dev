@@ -265,6 +265,76 @@
         </footer>
     {% endblock body%}
         </div>
+        <script>
+            (function() {
+                var button = document.querySelector(".post-tts");
+                if (!button || !("speechSynthesis" in window)) {
+                    if (button) {
+                        button.style.display = "none";
+                    }
+                    return;
+                }
+
+                var state = "idle";
+                var utterance = null;
+
+                function setState(next) {
+                    state = next;
+                    button.setAttribute("data-tts-state", state);
+                    if (state === "playing") {
+                        button.querySelector("span").textContent = "Stop";
+                        button.setAttribute("aria-label", "Stop narration");
+                    } else {
+                        button.querySelector("span").textContent = "Listen";
+                        button.setAttribute("aria-label", "Listen to article");
+                    }
+                }
+
+                function buildText() {
+                    var article = document.querySelector('article.post [itemprop="articleBody"]');
+                    if (!article) {
+                        return "";
+                    }
+                    var text = article.innerText || "";
+                    return text.replace(/\\s+/g, " ").trim();
+                }
+
+                function cancel() {
+                    if ("speechSynthesis" in window) {
+                        window.speechSynthesis.cancel();
+                    }
+                    utterance = null;
+                }
+
+                button.addEventListener("click", function() {
+                    if (state === "idle") {
+                        var text = buildText();
+                        if (!text) {
+                            return;
+                        }
+                        utterance = new SpeechSynthesisUtterance(text);
+                        utterance.onend = function() {
+                            setState("idle");
+                            utterance = null;
+                        };
+                        utterance.onerror = function() {
+                            setState("idle");
+                            utterance = null;
+                        };
+                        window.speechSynthesis.speak(utterance);
+                        setState("playing");
+                        return;
+                    }
+
+                    if (state === "playing") {
+                        cancel();
+                        setState("idle");
+                    }
+                });
+
+                window.addEventListener("beforeunload", cancel);
+            })();
+        </script>
         <script src="{{ get_url(path="js/theme-toggle.js", trailing_slash=false) | safe }}"></script>
     </body>
 </html>

@@ -892,12 +892,28 @@ article.post li {
     font-size: 12px;
 }
 
-.post-audio {
-    margin: 12px 0 0 0;
+.post-tts {
+    border: 0;
+    background: transparent;
+    color: var(--link);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.post-audio audio {
-    width: 100%;
+.post-tts i {
+    font-size: 16px;
+}
+
+.post-tts:hover {
+    color: var(--link-hover);
+}
+
+.post-tts[data-tts-state="playing"] {
+    color: var(--text);
 }
 
 .rss-ribbon {

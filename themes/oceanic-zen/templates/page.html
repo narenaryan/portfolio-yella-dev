@@ -5,6 +5,7 @@
     <div itemprop="headline">
         <h1>{{ page.title }}</h1>
         <div class="border"></div>
+        {% set is_blog_post = "blog/_index.md" in page.ancestors %}
         <div class="post-meta">
             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}" class="date" itemprop="datePublished">
                 {{ page.date | date(format="%d %b %Y") }}
@@ -12,6 +13,12 @@
             <span class="post-author">{{ page.author | default(value=config.extra.author) }}</span>
             {% if page.reading_time %}
                 <span class="post-meta__item">{{ page.reading_time }} min read</span>
+            {% endif %}
+            {% if is_blog_post %}
+            <button class="post-meta__item post-tts" type="button" data-tts-state="idle" aria-label="Listen to article">
+                <i class="bx bx-volume-full" aria-hidden="true"></i>
+                <span>Listen</span>
+            </button>
             {% endif %}
         </div>
         {% if page.taxonomies %}
@@ -31,13 +38,6 @@
             </div>
         {% endif %}
     </div>
-    {% if config.extra.audio_base_url and page.slug %}
-        <div class="post-audio">
-            <audio controls preload="none" src="{{ config.extra.audio_base_url }}/{{ page.slug }}.mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    {% endif %}
     {% if page.toc and page.toc | length > 0 %}
         <details class="post-toc" aria-label="Table of contents">
             <summary class="post-toc__title">On this page</summary>
