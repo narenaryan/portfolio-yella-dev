@@ -14,19 +14,6 @@ mkdir -p "$TMP_DIR"
 for file in "$CONTENT_DIR"/*.md; do
   slug="$(/usr/bin/env python3 "$ROOT_DIR/scripts/extract_post_text.py" "$file" --print-slug)"
 
-  text_path="$TMP_DIR/$slug.txt"
-  mp3_path="$TMP_DIR/$slug.mp3"
-
-  /usr/bin/env python3 "$ROOT_DIR/scripts/extract_post_text.py" "$file" > "$text_path"
-
-  aws polly synthesize-speech \
-    --engine "$ENGINE" \
-    --voice-id "$VOICE_ID" \
-    --output-format mp3 \
-    --region "$REGION" \
-    --text file://"$text_path" \
-    "$mp3_path"
-
-  aws s3 cp "$mp3_path" "$S3_PREFIX/$slug.mp3" --region "$REGION"
-  echo "Uploaded: $S3_PREFIX/$slug.mp3"
+  S3_PREFIX="$S3_PREFIX" VOICE_ID="$VOICE_ID" REGION="$REGION" ENGINE="$ENGINE" \
+    /usr/bin/env bash "$ROOT_DIR/scripts/generate_tts_for_file.sh" "$file"
 done
