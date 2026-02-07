@@ -1,0 +1,35 @@
+name: Generate TTS for All Blog Posts
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  tts_full:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-west-2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate and upload TTS for all posts
+        env:
+          S3_PREFIX: s3://yella-blog-assets/audio
+          VOICE_ID: Matthew
+          REGION: us-west-2
+          ENGINE: neural
+        run: |
+          scripts/generate_tts.sh
