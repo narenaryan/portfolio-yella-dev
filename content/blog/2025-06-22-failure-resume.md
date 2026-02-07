@@ -29,9 +29,9 @@ It took 2–3 years to assess and improve my skills and understand what I could 
 
 There are a few initiatives that helped me improve in that phase:
 
-- <i>Maintaining a journal</i>
-- <i>Repeating the patterns used by seniors</i>
-- <i>Constantly reviewing myself & setting goals</i>
+1. Maintaining a journal
+2. Repeating the patterns used by seniors
+3. Constantly reviewing myself & setting goals
 
 ## Failure 2:  Spend too much time doing the job
 
@@ -96,8 +96,8 @@ It was a very awkward moment. I could have prepared for the meeting in advance, 
 <b> What Helped Me?</b>
 Here are the mental adjustments I made thereafter:
 
-1. <i>Be prepared for important meetings</i>
-2. <i>Don’t go through endless rabbit holes, know when to stop and seek help</i>
+1. Be prepared for important meetings
+2. Don’t go through endless rabbit holes, know when to stop and seek help
 
 ## Failure 7: Laying out grand plans but not executing them
 

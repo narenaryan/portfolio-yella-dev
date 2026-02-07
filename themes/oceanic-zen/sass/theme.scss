@@ -260,6 +260,14 @@ p {
     margin: 0 0 1rem 0;
 }
 
+article.post > div[itemprop="articleBody"] > p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.2em;
+    line-height: 0.9;
+    padding-right: 8px;
+    font-weight: 700;
+}
+
 li {
     margin: 0.25rem 0;
 }

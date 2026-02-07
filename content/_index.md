@@ -5,7 +5,7 @@ weight = 0
 
 <div class="home-hero">
   <div class="home-hero-text">
-    Hi, I’m Naren—a Staff Cloud Security Engineer in the San Francisco Bay Area. I’ve spent over a decade building cloud software, tools, APIs, and micro‑services, and moved into cloud‑native platform engineering in 2021 to solve large‑scale infrastructure challenges.
+    Hi, I’m Naren Yellavula — a Staff Cloud Security Engineer in the San Francisco Bay Area. I’ve spent over a decade building cloud software, APIs, Micro‑services, CLI tools and currently focused on applying cloud‑native platform engineering to solve large‑scale infrastructure challenges without compromising Security.
   </div>
   <div class="home-hero-media">
     <img src="https://d3bphourhbt2ew.cloudfront.net/images/nyell-crop.jpg" alt="Naren Yellavula" />

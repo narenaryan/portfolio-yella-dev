@@ -3,7 +3,7 @@ title = "About"
 weight = 1
 +++
 
-Hi, I am Naren. I am currently working as a Staff Cloud Security Engineer in San Francisco Bay Area. I have more than a decade of experience in building Cloud Software, Tools, API and Micro-services. I transitioned myself into Cloud DevOps in 2021 to tackle the enterprise-level scaling challenges by using Cloud native Software like Kubernetes and it's ecosystem.
+Hi, my name is Naren Yellavula. I am currently working as a Staff Cloud Security Engineer in San Francisco Bay Area. I have more than a decade of experience in building Cloud Software, Tools, API and Micro-services. I transitioned myself into Cloud DevOps in 2021 to tackle the enterprise-level scaling challenges by using Cloud native Software like Kubernetes and it's ecosystem.
 
 I worked with both startups and enterprises in my career. Outside work, I like to read books, photography with my Olympus Micro four-thirds camera, blog here, and visit local libraries. I majorly use Python & Go for my official & leisure work, and currently exploring Rust & Zig for future use cases.
 
