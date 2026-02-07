@@ -28,6 +28,27 @@
             </div>
         {% endif %}
     </div>
+    {% if page.toc and page.toc | length > 0 %}
+        <details class="post-toc" aria-label="Table of contents">
+            <summary class="post-toc__title">On this page</summary>
+            <nav>
+                <ul>
+                    {% for h in page.toc %}
+                        <li>
+                            <a href="{{ h.permalink | safe }}">{{ h.title }}</a>
+                            {% if h.children and h.children | length > 0 %}
+                                <ul>
+                                    {% for c in h.children %}
+                                        <li><a href="{{ c.permalink | safe }}">{{ c.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </details>
+    {% endif %}
     <div itemprop="articleBody">
         {{ page.content | safe }}
     </div>

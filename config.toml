@@ -25,6 +25,7 @@ taxonomies = [
 ]
 
 [markdown]
+insert_anchor_links = "right"
 
 [markdown.highlighting]
 light_theme = "github-light"
