@@ -1,0 +1,23 @@
+name: Semgrep Secrets Scan
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 3 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep secrets scan
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/secrets
