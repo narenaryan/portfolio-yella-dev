@@ -38,6 +38,9 @@
             </div>
         {% endif %}
     </div>
+    {% if is_blog_post and config.extra.audio_base_url and page.slug %}
+        <audio class="post-audio" preload="none" src="{{ config.extra.audio_base_url }}/{{ page.slug }}.mp3"></audio>
+    {% endif %}
     {% if page.toc and page.toc | length > 0 %}
         <details class="post-toc" aria-label="Table of contents">
             <summary class="post-toc__title">On this page</summary>

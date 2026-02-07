@@ -916,6 +916,10 @@ article.post li {
     color: var(--text);
 }
 
+.post-audio {
+    display: none;
+}
+
 .rss-ribbon {
     display: inline-flex;
     align-items: center;
