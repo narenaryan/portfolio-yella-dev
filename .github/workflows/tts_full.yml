@@ -25,6 +25,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Generate and upload TTS for all posts
         env:
           S3_PREFIX: s3://yella-blog-assets/audio
