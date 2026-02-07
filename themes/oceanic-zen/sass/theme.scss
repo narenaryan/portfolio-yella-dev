@@ -886,9 +886,18 @@ article.post li {
     color: var(--muted);
 }
 
+
 .post-meta-inline {
     color: var(--muted);
     font-size: 12px;
+}
+
+.post-audio {
+    margin: 12px 0 0 0;
+}
+
+.post-audio audio {
+    width: 100%;
 }
 
 .rss-ribbon {

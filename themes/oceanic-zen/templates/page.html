@@ -31,6 +31,13 @@
             </div>
         {% endif %}
     </div>
+    {% if config.extra.audio_base_url and page.slug %}
+        <div class="post-audio">
+            <audio controls preload="none" src="{{ config.extra.audio_base_url }}/{{ page.slug }}.mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    {% endif %}
     {% if page.toc and page.toc | length > 0 %}
         <details class="post-toc" aria-label="Table of contents">
             <summary class="post-toc__title">On this page</summary>

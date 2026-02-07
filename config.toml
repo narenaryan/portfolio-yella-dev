@@ -35,3 +35,4 @@ dark_theme = "github-dark"
 # Put all your custom variables here
 author = "Naren Yellavula"
 social_image = "https://d3bphourhbt2ew.cloudfront.net/images/nyell-crop.jpg"
+audio_base_url = "https://d3bphourhbt2ew.cloudfront.net/audio"
