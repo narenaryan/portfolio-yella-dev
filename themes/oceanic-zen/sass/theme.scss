@@ -831,12 +831,13 @@ article.post li {
     gap: 6px;
     padding: 6px 10px;
     border-radius: 999px;
-    border: 1px solid var(--panel-border);
+    border: 2px solid var(--panel-border);
     background: var(--panel-bg);
     color: var(--text);
     font-size: 14px;
     justify-content: center;
     text-align: center;
+    border-color: cadetblue;
 }
 
 .home-social svg {
