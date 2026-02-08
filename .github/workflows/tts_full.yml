@@ -30,9 +30,12 @@ jobs:
 
       - name: Generate and upload TTS for all posts
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TTS_MODEL: gpt-4o-mini-tts
+          OPENAI_TTS_VOICE: ash
+          OPENAI_TTS_INSTRUCTIONS: "An essay style story telling"
+          OPENAI_TTS_FORMAT: mp3
           S3_PREFIX: s3://yella-blog-assets/audio
-          VOICE_ID: Matthew
           REGION: us-west-2
-          ENGINE: neural
         run: |
           scripts/generate_tts.sh
