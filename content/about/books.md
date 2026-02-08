@@ -3,7 +3,7 @@ title = "Books"
 date = "2025-12-17"
 +++
 
-I authored a couple of books in API development with Go undert the age of 27 with 1000+ copies sold worldwide.
+I authored a couple of books in API development with Go under the age of 27 with 1000+ copies sold worldwide.
 
 ### 1. Building RESTful Web services with Go (1st Edition) - 2017</b>
 
