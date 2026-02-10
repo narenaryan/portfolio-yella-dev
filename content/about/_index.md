@@ -21,11 +21,11 @@ I worked for Tradebyte Software GmbH, a Zalando company to develop their cloud p
 
 <b>Dolby (United States)</b>
 
-I am one of the Cloud Platform Engineers hired by Dolby to setup EKS-based clusters to host an array of services consumed by Dilby Media Cloud.
+I am one of the Cloud Platform Engineers hired by Dolby to setup EKS-based clusters to host an array of services consumed by Dolby Media Cloud.
 
 ## Transition from App world to Infra
 
-In 2021, I catapulted myself into the exciting world of Cloud-native software & Platform engineering which brought me eventually into CLoud & App Security. Before that, I was programming applications using Python, Django and Go.
+In 2021, I catapulted myself into the exciting world of Cloud-native software & Platform engineering which brought me eventually into Cloud & App Security. Before that, I was programming applications using Python, Django and Go.
 
 You can find my current & past open-source GitHub projects here: [Naren Yellavula's Projects](../projects)
 
