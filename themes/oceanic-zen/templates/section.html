@@ -11,13 +11,102 @@
             <div class="photo-wall">
                 {% for photo in section.extra.photos %}
                     <figure class="photo-bleed">
-                        <img src="{{ photo.src }}" alt="{{ photo.alt | default(value=section.title) }}" loading="lazy">
+                        <button
+                            class="photo-zoom-trigger"
+                            type="button"
+                            data-full="{{ photo.src }}"
+                            data-alt="{{ photo.alt | default(value=section.title) }}"
+                            {% if photo.caption %}data-caption="{{ photo.caption }}"{% endif %}
+                            aria-label="Open photo"
+                        >
+                            <img src="{{ photo.src }}" alt="{{ photo.alt | default(value=section.title) }}" loading="lazy">
+                        </button>
                         {% if photo.caption %}
                             <figcaption>{{ photo.caption }}</figcaption>
                         {% endif %}
                     </figure>
                 {% endfor %}
             </div>
+            <div class="photo-lightbox" aria-hidden="true" hidden>
+                <div class="photo-lightbox__backdrop" data-photo-close></div>
+                <div class="photo-lightbox__content" role="dialog" aria-modal="true" tabindex="-1">
+                    <button class="photo-lightbox__close" type="button" aria-label="Close photo" data-photo-close>
+                        <span aria-hidden="true">Close</span>
+                    </button>
+                    <figure class="photo-lightbox__figure">
+                        <img class="photo-lightbox__image" src="" alt="">
+                        <figcaption class="photo-lightbox__caption"></figcaption>
+                    </figure>
+                </div>
+            </div>
+            <script>
+                (function() {
+                    var triggers = document.querySelectorAll(".photo-zoom-trigger");
+                    var lightbox = document.querySelector(".photo-lightbox");
+                    var lightboxContent = document.querySelector(".photo-lightbox__content");
+                    var lightboxImage = document.querySelector(".photo-lightbox__image");
+                    var lightboxCaption = document.querySelector(".photo-lightbox__caption");
+                    var closeButtons = document.querySelectorAll("[data-photo-close]");
+                    var lastFocused = null;
+
+                    if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption) {
+                        return;
+                    }
+
+                    function openLightbox(trigger) {
+                        lastFocused = document.activeElement;
+                        lightboxImage.src = trigger.getAttribute("data-full");
+                        lightboxImage.alt = trigger.getAttribute("data-alt") || "Photo";
+                        var caption = trigger.getAttribute("data-caption");
+                        if (caption) {
+                            lightboxCaption.textContent = caption;
+                            lightboxCaption.style.display = "block";
+                        } else {
+                            lightboxCaption.textContent = "";
+                            lightboxCaption.style.display = "none";
+                        }
+                        lightbox.hidden = false;
+                        lightbox.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("is-photo-lightbox-open");
+                        requestAnimationFrame(function() {
+                            lightbox.classList.add("is-open");
+                            lightboxContent.focus();
+                        });
+                    }
+
+                    function closeLightbox() {
+                        if (lightbox.hidden) {
+                            return;
+                        }
+                        lightbox.classList.remove("is-open");
+                        lightbox.setAttribute("aria-hidden", "true");
+                        document.body.classList.remove("is-photo-lightbox-open");
+                        window.setTimeout(function() {
+                            lightbox.hidden = true;
+                            lightboxImage.src = "";
+                        }, 150);
+                        if (lastFocused) {
+                            lastFocused.focus();
+                        }
+                    }
+
+                    triggers.forEach(function(trigger) {
+                        trigger.addEventListener("click", function() {
+                            openLightbox(trigger);
+                        });
+                    });
+
+                    closeButtons.forEach(function(button) {
+                        button.addEventListener("click", closeLightbox);
+                    });
+
+                    document.addEventListener("keydown", function(event) {
+                        if (event.key === "Escape") {
+                            closeLightbox();
+                        }
+                    });
+                })();
+            </script>
         {% else %}
             <p>Gallery coming soon.</p>
         {% endif %}

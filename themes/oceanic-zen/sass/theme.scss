@@ -448,17 +448,34 @@ h6:hover .zola-anchor {
 .photo-wall {
     display: grid;
     gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .photo-bleed {
     margin: 0;
 }
 
-.photo-bleed img {
+.photo-zoom-trigger {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.photo-zoom-trigger img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.photo-zoom-trigger:hover img,
+.photo-zoom-trigger:focus-visible img {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
 }
 
 .photo-bleed figcaption {
@@ -467,6 +484,73 @@ h6:hover .zola-anchor {
     padding: 0 20px;
     font-size: 13px;
     color: var(--muted);
+}
+
+.photo-lightbox {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(8, 10, 12, 0.84);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 1000;
+}
+
+.photo-lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.photo-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.photo-lightbox__content {
+    position: relative;
+    width: min(92vw, 1100px);
+    max-height: 90vh;
+    display: grid;
+    gap: 16px;
+    outline: none;
+    z-index: 1;
+}
+
+.photo-lightbox__close {
+    justify-self: end;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(15, 18, 20, 0.85);
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.photo-lightbox__figure {
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.photo-lightbox__image {
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #0d0f11;
+}
+
+.photo-lightbox__caption {
+    color: #d5d8dc;
+    font-size: 14px;
+    text-align: center;
+}
+
+body.is-photo-lightbox-open {
+    overflow: hidden;
 }
 
 p {
