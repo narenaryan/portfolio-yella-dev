@@ -4,7 +4,7 @@ slug = "building-blog-with-zola-ground-up"
 date = "2026-02-08"
 +++
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/colored_statues.jpg" />
+<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
 
 ## Introduction
 
