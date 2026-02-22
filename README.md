@@ -28,7 +28,7 @@ content/blog/*.md
   scripts/chunk_text.py (<= 2800 chars)
         |
         v
-  AWS Polly (neural voice)
+  OpenAI Whisper (neural voice)
         |
         v
   MP3 chunks + ffmpeg concat
@@ -52,7 +52,7 @@ GitHub push (main) or manual run
 GitHub OIDC -> AssumeRoleWithWebIdentity
         |
         v
-AWS Polly + S3 Upload
+OpenAI Whisper + S3 Upload
         |
         v
 CloudFront serves MP3
