@@ -1,7 +1,7 @@
 +++
 title = "How I built this portfolio ground up (TLDR)"
 slug = "building-blog-with-zola-ground-up"
-date = "2026-02-08"
+date = "2026-02-22"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
@@ -22,19 +22,19 @@ I designed & deployed this website to create a clean space to host my portfolio 
 I bought my domain (yella.dev) on Namecheap Domain Seller. Word `Yella` is a prefix of my last name: Yellavula.
 
 ## Options for static site generation
-I shortlisted few static site generators like Falcon (Python), Astro Docs (JavaScript), Hugo (Go), Zola (Rust). I finally picked Zola & discarded rest for my portfolio due to below reasons:
+I shortlisted few static site generators like Pelican (Python), Astro Docs (JavaScript), Hugo (Go), Zola (Rust). I finally picked Zola & discarded rest for my portfolio due to below reasons:
 
-### 1. Falcon - Python ❌
+### 1. Pelican - Python ❌
 
-I previously used Falcon static site generator before and wanted to try something modern this time.
+I previously used [Pelican](https://getpelican.com/) static site generator before and wanted to try something modern this time.
 
 ### 2. Astro Docs - JS ❌
 
-I am not a big fan of JavaScript tools due to so many NPM dependencies & security vulnerabilities. Also, I wan't to keep static site generation & builds as separate technologies.
+I am not a big fan of JavaScript tools due to so many NPM dependencies & security vulnerabilities. Also, I wan't to keep static site generation & builds as separate technologies. Therefore I skipped [Astro Docs](https://astro.build/)
 
 ### 3. Hugo - Go ❌
 
-Hugo is a great static site generator tool, but complex and has a steep learning curve. My goal is to get started as fast as possible, and picking Hugo won't help my purpose.
+[Hugo](https://gohugo.io/) is a great static site generator tool, but complex and has a steep learning curve. My goal is to get started as fast as possible, and picking Hugo won't help my purpose.
 
 ### 4. Zola - Rust ✅
 
