@@ -1,8 +1,8 @@
-+++
+++++
 title = "How I built this portfolio ground up (TLDR)"
 slug = "building-blog-with-zola-ground-up"
 date = "2026-02-22"
-+++
+++++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
 
@@ -30,7 +30,7 @@ I previously used [Pelican](https://getpelican.com/) static site generator befor
 
 ### 2. Astro Docs - JS ❌
 
-I am not a big fan of JavaScript tools due to so many NPM dependencies & security vulnerabilities. Also, I wan't to keep static site generation & builds as separate technologies. Therefore I skipped [Astro Docs](https://astro.build/)
+I am not a big fan of JavaScript tools due to so many NPM dependencies & security vulnerabilities. Also, I want to keep static site generation & builds as separate technologies. Therefore I skipped [Astro Docs](https://astro.build/)
 
 ### 3. Hugo - Go ❌
 
@@ -54,9 +54,9 @@ Once installed, I initialized a Zola project using "init" command:
 zola init yella.dev
 ```
 
-This creates a directory called yella.dev and places necessary files likes `contents` directory and `config.toml`. You can see Zola directory structure here: [Zola Directories](https://www.getzola.org/documentation/getting-started/directory-structure/)
+This creates a directory called yella.dev and places necessary files like `contents` directory and `config.toml`. You can see Zola directory structure here: [Zola Directories](https://www.getzola.org/documentation/getting-started/directory-structure/)
 
-Zola uses "Sass" extension language for Cascading Style Sheets (CSS) making it easier to build styles and reuse them. The file: config.toml controls how Zola builds the website. For full list of available options, refere here: [Zola Configuration](https://www.getzola.org/documentation/getting-started/configuration/)
+Zola uses "Sass" extension language for Cascading Style Sheets (CSS) making it easier to build styles and reuse them. The file: config.toml controls how Zola builds the website. For full list of available options, refer here: [Zola Configuration](https://www.getzola.org/documentation/getting-started/configuration/)
 
 ## Picking Oceanic Zen theme for look & feel
 
@@ -79,29 +79,29 @@ I used various Amazon Web Services (AWS) to deploy my website End-to-End (E2E). 
 
 ## Deployment Architecture
 
-The architecture has three main phases:
+The architecture has four main phases:
 
 1. Publishing phase (For writing blog articles)
 2. Text to speech conversion phase (for converting articles into listenable audio)
 3. Delivery phase (to deploy the update)
 4. Cache invalidation phase (to reset audio & static files)
 
-These three phases are divided into five partitions as shown in the below flow diagram.
+These four phases are divided into five partitions as shown in the below flow diagram.
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/arch.png" />
 
-The architecture is straight-forward with separation of responsibility handled by different entitites. For example, Publishing happens locally and then pushed to GitHub repository.
-A GitHub CI workflow extracts text from new article, and converts it into audio using OpenAI Whisper API, then upload to S3. Finally, there is a cahce invalidation step that resets the blog static assets like images and audio to serve fresh content. This is invalidate all at the moment, but can be optimized further.
+The architecture is straight-forward with separation of responsibility handled by different entities. For example, Publishing happens locally and then pushed to GitHub repository.
+A GitHub CI workflow extracts text from new article, and converts it into audio using OpenAI Whisper API, then upload to S3. Finally, there is a cache invalidation step that resets the blog static assets like images and audio to serve fresh content. This is invalidating all at the moment, but can be optimized further.
 
-As AWS Amplify is already listenting to the repository changes, it automatically syncs changes to repo into Amplify app. This is how the blog content gets deployed.
+As AWS Amplify is already listening to the repository changes, it automatically syncs changes to repo into Amplify app. This is how the blog content gets deployed.
 The custom domain (yella.dev) is connected with Amplify via Route53 A & CNAME records for yella.dev, www.yella.dev respectively.
 
 ## Security Considerations
 
-There are multiple security aspects considered dueint the development.
+There are multiple security aspects considered during the development.
 
 1. All secrets are stored in encrypted GitHub secrets. Can be improved by migrating them to AWS Secrets Manager
-2. To upload audio to S3 and for invalidating cache, an IAM OIDC trust relationship with required permissions is setup b/w GitHub repository & AWS CloudFront distribution with Least-previlige principle.
+2. To upload audio to S3 and for invalidating cache, an IAM OIDC trust relationship with required permissions is setup between GitHub repository & AWS CloudFront distribution with Least-privilege principle.
     ```json
     {
         "Version": "2012-10-17",
@@ -147,7 +147,7 @@ There are multiple security aspects considered dueint the development.
 4. Add Web Application Firewall (WAF) for both Amplify App (blog content) & CloudFront distribution (blog static assets) to protect from bots & common attacks
 
   <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/amplify-waf.png" />
-  Make sure to toggle thsese settings ON on Ampliofy Firewall:
+  Make sure to toggle these settings ON on Amplify Firewall:
 
   1. Enable Amplify-recommended Firewall protection
   2. Restrict access to amplifyapp.com
