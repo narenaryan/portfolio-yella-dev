@@ -37,11 +37,15 @@
         {% endif %}
         <link rel="canonical" href="{{ canonical_url }}">
 
-        {% set og_title = site_title %}
+        {% set base_title = site_title %}
         {% if is_page %}
-            {% set og_title = page.title ~ " | " ~ site_title %}
+            {% set base_title = page.title %}
         {% elif is_section %}
-            {% set og_title = section.title ~ " | " ~ site_title %}
+            {% set base_title = section.title %}
+        {% endif %}
+        {% set og_title = base_title %}
+        {% if site_title and (is_page or is_section) %}
+            {% set og_title = base_title ~ " | " ~ site_title %}
         {% endif %}
 
         {% set og_image = config.extra.social_image %}
@@ -108,13 +112,7 @@
 
         <title>
             {% block title %}
-                {% if is_page %}
-                    {{ page.title }} | {{ site_title }}
-                {% elif is_section %}
-                    {{ section.title }} | {{ site_title }}
-                {% else %}
-                    {{ site_title }}
-                {% endif %}
+                {{ og_title }}
             {% endblock title %}
         </title>
 
