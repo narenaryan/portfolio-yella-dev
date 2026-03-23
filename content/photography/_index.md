@@ -84,4 +84,24 @@ src = "https://d3bphourhbt2ew.cloudfront.net/images/rocky_mountains.jpg"
 alt = "Rocky Mountains"
 caption = "Rocky Mountains view from Frontier Airlines Plane"
 
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/point-reyes.jpg"
+alt = "View from Popint Reyes Lighthouse"
+caption = "View from Popint Reyes Lighthouse"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/lone-tree.jpg"
+alt = "A tree in Sonoma County"
+caption = "A lonely tree in Sonoma County"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/chimney-rock.jpg"
+alt = "Chimney rock view near Point Reyes"
+caption = "Chimney rock view near Point Reyes"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/sea-lions.jpg"
+alt = "Sea lions running into ocean near Point Reyes"
+caption = "Sea lions running into ocean near Point Reyes"
+
 +++
