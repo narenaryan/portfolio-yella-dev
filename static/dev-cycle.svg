@@ -1,0 +1,159 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+    <filter id="card-shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="560" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#0F172A">A Full Development Cycle</text>
+  <text x="450" y="54" text-anchor="middle" font-size="13" fill="#64748B">Two model tiers. One traceable loop.</text>
+
+  <!-- ── Model tier legend strip ── -->
+  <rect x="170" y="64" width="200" height="20" rx="10" fill="#7C3AED"/>
+  <text x="270" y="78" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Claude · Sprint &amp; Planning</text>
+  <rect x="530" y="64" width="220" height="20" rx="10" fill="#0E7490"/>
+  <text x="640" y="78" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">OpenCode + GPT-5 · Execution</text>
+
+  <!-- ═══════════════════════════════════════════════
+       ROW 1: Linear  →  Orchestrator  →  Problem Repo
+       ═══════════════════════════════════════════════ -->
+
+  <!-- 1. Linear — Claude tier -->
+  <rect x="40" y="100" width="160" height="100" rx="10" fill="#7C3AED" filter="url(#card-shadow)"/>
+  <text x="120" y="126" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Linear</text>
+  <text x="120" y="144" text-anchor="middle" font-size="10" fill="#DDD6FE">Sprint issues</text>
+  <text x="120" y="160" text-anchor="middle" font-size="10" fill="#DDD6FE">Blockers · Priority</text>
+  <text x="120" y="176" text-anchor="middle" font-size="10" fill="#EDE9FE">MCP server</text>
+  <!-- model badge -->
+  <rect x="60" y="184" width="120" height="13" rx="6" fill="#5B21B6"/>
+  <text x="120" y="194" text-anchor="middle" font-size="9" font-weight="600" fill="#EDE9FE">Claude · reasoning</text>
+
+  <!-- arrow Linear → Orchestrator -->
+  <line x1="200" y1="145" x2="298" y2="145" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="249" y="137" text-anchor="middle" font-size="10" fill="#64748B">query</text>
+
+  <!-- 2. Orchestrator — split tier label -->
+  <rect x="300" y="100" width="160" height="100" rx="10" fill="#1E40AF" filter="url(#card-shadow)"/>
+  <text x="380" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Orchestrator</text>
+  <text x="380" y="142" text-anchor="middle" font-size="10" fill="#BFDBFE">Selects issue</text>
+  <text x="380" y="158" text-anchor="middle" font-size="10" fill="#BFDBFE">Assigns worker</text>
+  <text x="380" y="174" text-anchor="middle" font-size="10" fill="#BFDBFE">Scopes task</text>
+  <!-- dual badge: sprint=Claude / exec=GPT -->
+  <rect x="310" y="184" width="140" height="13" rx="6" fill="#0E7490"/>
+  <text x="380" y="194" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- annotation: sprint planning uses Claude -->
+  <line x1="310" y1="130" x2="205" y2="130" stroke="#7C3AED" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- arrow Orchestrator → Problem Repo -->
+  <line x1="460" y1="145" x2="558" y2="145" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="509" y="137" text-anchor="middle" font-size="10" fill="#64748B">lookup</text>
+
+  <!-- 3. Problem Repo -->
+  <rect x="560" y="100" width="160" height="100" rx="10" fill="#B45309" filter="url(#card-shadow)"/>
+  <text x="640" y="121" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Problem Repo</text>
+  <text x="640" y="139" text-anchor="middle" font-size="10" fill="#FDE68A">PROBLEMS.md</text>
+  <text x="640" y="155" text-anchor="middle" font-size="10" fill="#FDE68A">Match symptoms</text>
+  <text x="640" y="171" text-anchor="middle" font-size="10" fill="#FDE68A">Reuse known fix</text>
+  <rect x="575" y="184" width="130" height="13" rx="6" fill="#92400E"/>
+  <text x="640" y="194" text-anchor="middle" font-size="9" fill="#FEF3C7">shared · model-agnostic</text>
+
+  <!-- arrow down: Problem Repo → Worker -->
+  <line x1="640" y1="200" x2="640" y2="268" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="658" y="238" font-size="10" fill="#64748B">task + fix</text>
+
+  <!-- ═══════════════════════════════════════
+       ROW 2: Worker Agent  →  Git
+       ═══════════════════════════════════════ -->
+
+  <!-- 4. Worker Agent — GPT tier -->
+  <rect x="300" y="270" width="160" height="100" rx="10" fill="#0E7490" filter="url(#card-shadow)"/>
+  <text x="380" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Worker Agent</text>
+  <!-- TDD phases inline -->
+  <rect x="310" y="297" width="64" height="30" rx="5" fill="#DC2626"/>
+  <text x="342" y="310" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">RED</text>
+  <text x="342" y="322" text-anchor="middle" font-size="8" fill="#FCA5A5">failing test</text>
+  <rect x="386" y="297" width="64" height="30" rx="5" fill="#16A34A"/>
+  <text x="418" y="310" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">GREEN</text>
+  <text x="418" y="322" text-anchor="middle" font-size="8" fill="#BBF7D0">impl passes</text>
+  <text x="380" y="344" text-anchor="middle" font-size="10" fill="#A5F3FC">Both SHAs → orchestrator</text>
+  <rect x="310" y="354" width="140" height="13" rx="6" fill="#0891B2"/>
+  <text x="380" y="364" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- connecting arrow: Problem Repo → Worker (diagonal) -->
+  <line x1="560" y1="270" x2="463" y2="268" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- arrow Orchestrator → Worker (down) -->
+  <line x1="380" y1="200" x2="380" y2="268" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="398" y="238" font-size="10" fill="#64748B">delegate</text>
+
+  <!-- arrow Worker → Git -->
+  <line x1="460" y1="315" x2="558" y2="315" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="509" y="307" text-anchor="middle" font-size="10" fill="#64748B">push branch</text>
+
+  <!-- 5. Git -->
+  <rect x="560" y="270" width="160" height="100" rx="10" fill="#C2410C" filter="url(#card-shadow)"/>
+  <text x="640" y="294" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Git</text>
+  <text x="640" y="312" text-anchor="middle" font-size="10" fill="#FED7AA">Short-lived branch</text>
+  <text x="640" y="328" text-anchor="middle" font-size="10" fill="#FED7AA">Commit SHA receipt</text>
+  <text x="640" y="344" text-anchor="middle" font-size="10" fill="#FED7AA">Open PR</text>
+  <rect x="575" y="354" width="130" height="13" rx="6" fill="#9A3412"/>
+  <text x="640" y="364" text-anchor="middle" font-size="9" fill="#FED7AA">source of truth</text>
+
+  <!-- ═══════════════════════════════════
+       ROW 3: Greptile → Merge → Linear Done
+       ═══════════════════════════════════ -->
+
+  <!-- arrow Git → Greptile (down) -->
+  <line x1="640" y1="370" x2="640" y2="438" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="658" y="408" font-size="10" fill="#64748B">PR opened</text>
+
+  <!-- 6. Greptile -->
+  <rect x="560" y="440" width="160" height="80" rx="10" fill="#9D174D" filter="url(#card-shadow)"/>
+  <text x="640" y="460" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Greptile</text>
+  <text x="640" y="476" text-anchor="middle" font-size="10" fill="#FBCFE8">Semantic review</text>
+  <text x="640" y="492" text-anchor="middle" font-size="10" fill="#FBCFE8">Codebase context</text>
+  <!-- confidence score badge -->
+  <rect x="575" y="500" width="130" height="14" rx="7" fill="#881337"/>
+  <text x="640" y="511" text-anchor="middle" font-size="9" font-weight="600" fill="#FCA5A5">Confidence score: /5</text>
+
+  <!-- arrow Greptile → Merge -->
+  <line x1="560" y1="480" x2="462" y2="480" stroke="#059669" stroke-width="1.8" marker-end="url(#arr-green)"/>
+  <text x="511" y="470" text-anchor="middle" font-size="10" fill="#059669">4/5 or 5/5</text>
+  <text x="511" y="482" text-anchor="middle" font-size="10" fill="#059669">→ safe merge</text>
+
+  <!-- 7. Merge -->
+  <rect x="300" y="440" width="160" height="80" rx="10" fill="#065F46" filter="url(#card-shadow)"/>
+  <text x="380" y="464" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Merge to main</text>
+  <text x="380" y="482" text-anchor="middle" font-size="10" fill="#A7F3D0">Integration gate</text>
+  <text x="380" y="498" text-anchor="middle" font-size="10" fill="#A7F3D0">Smoke tests pass</text>
+
+  <!-- arrow Merge → Linear (left + up) -->
+  <line x1="300" y1="480" x2="202" y2="480" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="202" y1="480" x2="202" y2="202" stroke="#64748B" stroke-width="1.8"/>
+  <line x1="202" y1="202" x2="200" y2="202" stroke="#64748B" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="178" y="348" text-anchor="middle" font-size="10" fill="#64748B" transform="rotate(-90,178,348)">issue → Done + SHA</text>
+
+  <!-- Worker → problem repo note -->
+  <line x1="380" y1="440" x2="380" y2="372" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+  <!-- Problem repo update note -->
+  <rect x="40" y="440" width="200" height="80" rx="8" fill="#FEF9C3" stroke="#FDE047" stroke-width="1.2"/>
+  <text x="140" y="462" text-anchor="middle" font-size="11" font-weight="600" fill="#713F12">New problem found?</text>
+  <text x="140" y="480" text-anchor="middle" font-size="10" fill="#92400E">Worker appends entry</text>
+  <text x="140" y="496" text-anchor="middle" font-size="10" fill="#92400E">to PROBLEMS.md</text>
+  <text x="140" y="512" text-anchor="middle" font-size="10" fill="#92400E">before closing task</text>
+
+  <!-- arrow Worker → problem note -->
+  <line x1="300" y1="340" x2="240" y2="458" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+</svg>

@@ -1,0 +1,117 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F59E0B"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#0F172A">The Orchestrator Pattern</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13" fill="#64748B">One coordinator. Many specialists. No shortcuts.</text>
+
+  <!-- ── Model tier legend ── -->
+  <!-- Claude tier pill -->
+  <rect x="220" y="68" width="180" height="22" rx="11" fill="#7C3AED"/>
+  <text x="310" y="84" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Claude — Sprint Planning</text>
+  <!-- GPT tier pill -->
+  <rect x="500" y="68" width="200" height="22" rx="11" fill="#0E7490"/>
+  <text x="600" y="84" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">OpenCode + GPT-5 — Execution</text>
+
+  <!-- ── Sprint planning callout (top-left) ── -->
+  <rect x="20" y="100" width="170" height="70" rx="8" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="105" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#5B21B6">Sprint Planning</text>
+  <text x="105" y="137" text-anchor="middle" font-size="10" fill="#6D28D9">Claude reads Linear</text>
+  <text x="105" y="152" text-anchor="middle" font-size="10" fill="#6D28D9">breaks down work</text>
+  <text x="105" y="167" text-anchor="middle" font-size="10" fill="#7C3AED">advanced reasoning</text>
+
+  <!-- Arrow: sprint planning → orchestrator -->
+  <line x1="190" y1="135" x2="298" y2="135" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-purple)"/>
+  <text x="249" y="128" text-anchor="middle" font-size="10" fill="#7C3AED">hands off</text>
+
+  <!-- ── Orchestrator box ── -->
+  <rect x="310" y="100" width="280" height="80" rx="10" fill="#1E40AF" filter="url(#shadow)"/>
+  <text x="450" y="127" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Orchestrator Agent</text>
+  <text x="450" y="146" text-anchor="middle" font-size="11" fill="#BFDBFE">Plans · Delegates · Tracks · Never codes</text>
+  <!-- model badge -->
+  <rect x="360" y="156" width="180" height="16" rx="8" fill="#0E7490"/>
+  <text x="450" y="168" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- ── Connector lines orchestrator → workers ── -->
+  <line x1="330" y1="180" x2="90"  y2="290" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="390" y1="180" x2="240" y2="290" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="450" y1="180" x2="450" y2="290" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="510" y1="180" x2="660" y2="290" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="570" y1="180" x2="810" y2="290" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- ── Worker agents ── -->
+  <!-- WS1 Frontend -->
+  <rect x="30"  y="290" width="120" height="72" rx="8" fill="#0E7490"/>
+  <text x="90"  y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Frontend</text>
+  <text x="90"  y="330" text-anchor="middle" font-size="10" fill="#A5F3FC">Lexer · Parser · AST</text>
+  <rect x="40"  y="342" width="100" height="13" rx="6" fill="#0891B2"/>
+  <text x="90"  y="352" text-anchor="middle" font-size="9" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- WS2 Types -->
+  <rect x="180" y="290" width="120" height="72" rx="8" fill="#0E7490"/>
+  <text x="240" y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Types</text>
+  <text x="240" y="330" text-anchor="middle" font-size="10" fill="#A5F3FC">Type system · Sem</text>
+  <rect x="190" y="342" width="100" height="13" rx="6" fill="#0891B2"/>
+  <text x="240" y="352" text-anchor="middle" font-size="9" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- WS4 Planner -->
+  <rect x="390" y="290" width="120" height="72" rx="8" fill="#047857"/>
+  <text x="450" y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Planner</text>
+  <text x="450" y="330" text-anchor="middle" font-size="10" fill="#A7F3D0">Dep graph · Plan IR</text>
+  <rect x="400" y="342" width="100" height="13" rx="6" fill="#059669"/>
+  <text x="450" y="352" text-anchor="middle" font-size="9" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- WS5 Provider -->
+  <rect x="600" y="290" width="120" height="72" rx="8" fill="#047857"/>
+  <text x="660" y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">AWS Provider</text>
+  <text x="660" y="330" text-anchor="middle" font-size="10" fill="#A7F3D0">S3 · IAM · VPC · EC2</text>
+  <rect x="610" y="342" width="100" height="13" rx="6" fill="#059669"/>
+  <text x="660" y="352" text-anchor="middle" font-size="9" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- WS8 QA -->
+  <rect x="750" y="290" width="120" height="72" rx="8" fill="#6D28D9"/>
+  <text x="810" y="314" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">QA</text>
+  <text x="810" y="330" text-anchor="middle" font-size="10" fill="#DDD6FE">Snapshots · Smoke CI</text>
+  <rect x="760" y="342" width="100" height="13" rx="6" fill="#7C3AED"/>
+  <text x="810" y="352" text-anchor="middle" font-size="9" fill="#FFFFFF">OpenCode · GPT-5</text>
+
+  <!-- ── Report section ── -->
+  <rect x="200" y="406" width="500" height="58" rx="8" fill="#FEF9C3" stroke="#FDE047" stroke-width="1.5"/>
+  <text x="450" y="428" text-anchor="middle" font-size="12" font-weight="600" fill="#713F12">Worker Report (required)</text>
+  <text x="450" y="448" text-anchor="middle" font-size="11" fill="#92400E">Branch · Commit SHA · Tests · Contract changes · Problem IDs</text>
+
+  <!-- lines from workers to report box -->
+  <line x1="90"  y1="362" x2="280" y2="406" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="240" y1="362" x2="340" y2="406" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="450" y1="362" x2="450" y2="406" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="660" y1="362" x2="560" y2="406" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="810" y1="362" x2="620" y2="406" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- line from report box up to orchestrator -->
+  <line x1="450" y1="406" x2="450" y2="183" stroke="#F59E0B" stroke-width="1.8" marker-end="url(#arrow-amber)"/>
+
+  <!-- ── Contract bar ── -->
+  <rect x="80" y="502" width="740" height="44" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="450" y="520" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Contract-First Interfaces</text>
+  <text x="450" y="537" text-anchor="middle" font-size="10" fill="#64748B">ast::*  →  sem::*  →  refine::*  →  plan::*  →  provider::aws::*  →  state::*</text>
+
+  <!-- lines from contract bar to workers -->
+  <line x1="150" y1="502" x2="90"  y2="362" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="260" y1="502" x2="240" y2="362" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="450" y1="502" x2="450" y2="362" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="640" y1="502" x2="660" y2="362" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="750" y1="502" x2="810" y2="362" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>
