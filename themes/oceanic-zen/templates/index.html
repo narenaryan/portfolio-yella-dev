@@ -231,16 +231,60 @@
             {% block main %}
             {% if section %}
                 <article itemscope itemtype="http://schema.org/BlogPosting">
+                    {% if not is_home %}
                     <div itemprop="headline">
                         <h1>{{ section.title }}</h1>
                         <div class="border"></div>
                     </div>
+                    {% endif %}
                     {% if section.content %}
                     <div itemprop="articleBody">
                         {{ section.content | safe }}
                     </div>
                     {% endif %}
                 </article>
+                {% if is_home %}
+                    {% set blog_section = get_section(path="blog/_index.md") %}
+                    {% if blog_section.pages %}
+                    <div class="home-recent">
+                        <div class="home-recent__header">
+                            <span class="home-recent__label">Recent Writing</span>
+                            <a class="home-recent__all" href="{{ blog_section.permalink | safe }}">All posts →</a>
+                        </div>
+                        <ul class="post-list">
+                            {% for p in blog_section.pages | slice(end=3) %}
+                                {% set preview_src = "" %}
+                                {% if p.extra.preview_image %}
+                                    {% set preview_src = p.extra.preview_image %}
+                                {% else %}
+                                    {% set parts = p.content | split(pat='src="') %}
+                                    {% if parts | length > 1 %}
+                                        {% set preview_src = (parts[1] | split(pat='"') | first) %}
+                                    {% endif %}
+                                {% endif %}
+                                <li class="post-card">
+                                    <a class="post-card__link" href="{{ p.permalink | safe }}">
+                                        {% if preview_src != "" %}
+                                            <img class="post-card__image" src="{{ preview_src }}" alt="{{ p.extra.preview_image_alt | default(value=p.title) }}" loading="lazy">
+                                        {% endif %}
+                                        <div class="post-card__content">
+                                            <div class="post-card__title">{{ p.title }}</div>
+                                            {% if p.date %}
+                                            <span class="post-date">{{ p.date | date(format="%b %d, %Y") }}</span>
+                                            {% endif %}
+                                            <span class="post-meta-inline">
+                                                {% if p.reading_time %}{{ p.reading_time }} min read{% endif %}
+                                                {% if p.reading_time and p.word_count %} · {% endif %}
+                                                {% if p.word_count %}{{ p.word_count }} words{% endif %}
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                {% endif %}
             {% else %}
                 <h1>{{ config.title }}</h1>
                 <div class="border"></div>
