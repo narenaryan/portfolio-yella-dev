@@ -1,0 +1,81 @@
+Fixes applied to: content/blog/2026-04-12-what-ai-needs-from-you.md
+Date: 2026-04-12
+
+--- GRAMMATICAL FIXES ---
+
+1. "other time they are engaged" → "other times they are engaged"
+   (plural noun required)
+
+2. "extend or redact quality outputs" → "extend or reduce quality outputs"
+   ("redact" means to censor/remove text; "reduce" is the correct word here)
+
+3. "I want to discuss few key elements" → "I want to discuss a few key elements"
+   (missing article "a" before "few")
+
+4. "What makes LLMs happy while working. ?" → "What makes LLMs happy while working?"
+   (spurious period before question mark)
+
+5. "stability in job" → "stability in a job"
+   (missing article "a")
+
+6. "What about LLMs. ?" → "What about LLMs?"
+   (spurious period before question mark)
+
+7. "Does the same factors play crucial role in human behavior can be applied to AI."
+   → "Can the same factors that play a crucial role in human behavior be applied to AI?"
+   (broken sentence structure; rewritten as a proper question; added article "a" before "crucial role")
+
+8. "This is a my hand-written article" → "This is my hand-written article"
+   (double article "a my" — removed "a")
+
+9. "context from more number connections" → "context from a greater number of connections"
+   (ungrammatical phrasing; added article "a" and preposition "of")
+
+10. "The scope of problem" → "The scope of the problem"
+    (missing article "the" before "problem")
+
+11. "can fit in given duration" → "can fit in the given duration"
+    (missing article "the" before "given duration")
+
+12. "Am I treating this AI as a tool or a person." → "Am I treating this AI as a tool or a person?"
+    (question must end with "?", not ".")
+
+13. "in last example" → "in the last example"
+    (missing article "the")
+
+14. "same-level of status like humans" → "same level of status as humans"
+    (erroneous hyphen in "same-level"; "like" changed to "as" for correct comparison)
+
+15. "By delegating a human-related task to a human-like AI brings better outcome"
+    → "Delegating a human-related task to a human-like AI brings a better outcome"
+    (dangling "By" made the clause a gerund phrase with no main verb; removed "By"; added article "a" before "better outcome")
+
+16. "go in wrong direction" → "go in the wrong direction"
+    (missing article "the")
+
+17. "inform AI what is prior work happened" → "inform AI what prior work has been done"
+    (broken syntax; restructured to correct grammar)
+
+18. "If there is no previous work went into the idea"
+    → "If there is no previous work that went into the idea"
+    (missing relative pronoun "that")
+
+19. "offers you same which leads to overall increase"
+    → "offers you the same, which leads to an overall increase"
+    (missing article "the" before "same"; added comma before "which"; missing article "an" before "overall")
+
+20. "Being a critique to AI output" → "Being a critic of AI output"
+    ("critique" is a noun/verb for the act of reviewing; "critic" is the person; preposition changed from "to" to "of")
+
+21. "in respectful way" → "in a respectful way"
+    (missing article "a")
+
+22. "AI can easily get confused, If your goal and tone doesn't match"
+    → "AI can easily get confused if your goal and tone don't match"
+    (spurious comma before subordinating conjunction; "If" lowercased; subject-verb agreement: "goal and tone" is plural, so "don't" not "doesn't")
+
+23. "In opposite," → "In contrast,"
+    ("In opposite" is not a valid English phrase; "In contrast" is the correct idiomatic expression)
+
+24. "experiencing the better outcome" → "experiencing a better outcome"
+    (indefinite article "a" required; "the" implies a specific previously mentioned outcome)
