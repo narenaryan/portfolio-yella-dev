@@ -26,9 +26,6 @@
         <meta name="description" content="{{ meta_description }}">
         {% endif %}
 
-        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-        <script data-goatcounter="https://yelladev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
         {% set canonical_url = config.base_url %}
         {% if is_page %}
             {% set canonical_url = page.permalink %}
@@ -217,8 +214,13 @@
                         {% endif %}
                         <li class="nav">
                             <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                                <i class="bx bx-moon icon-moon" aria-hidden="true"></i>
-                                <i class="bx bx-sun icon-sun" aria-hidden="true"></i>
+                                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path fill="currentColor" d="M20 15.31A8 8 0 0 1 8.69 4 9 9 0 1 0 20 15.31Z"></path>
+                                </svg>
+                                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                                    <path fill="currentColor" d="M11 1h2v4h-2zm0 18h2v4h-2zm8-8h4v2h-4zM1 11h4v2H1zm15.36-7.78 1.41 1.41-2.83 2.83-1.41-1.41zm-8.48 8.48 1.41 1.41-2.83 2.83-1.41-1.41zm0-4.24L5.05 4.64l1.41-1.41 2.83 2.83zm8.48 8.48-2.83-2.83 1.41-1.41 2.83 2.83z"></path>
+                                </svg>
                             </button>
                         </li>
                       </ul>
@@ -253,19 +255,12 @@
                         </div>
                         <ul class="post-list">
                             {% for p in blog_section.pages | slice(end=3) %}
-                                {% set preview_src = "" %}
-                                {% if p.extra.preview_image %}
-                                    {% set preview_src = p.extra.preview_image %}
-                                {% else %}
-                                    {% set parts = p.content | split(pat='src="') %}
-                                    {% if parts | length > 1 %}
-                                        {% set preview_src = (parts[1] | split(pat='"') | first) %}
-                                    {% endif %}
-                                {% endif %}
+                                {% set preview_src = p.extra.card_image | default(value="") %}
+                                {% set preview_alt = p.extra.card_image_alt | default(value=p.title) %}
                                 <li class="post-card">
                                     <a class="post-card__link" href="{{ p.permalink | safe }}">
                                         {% if preview_src != "" %}
-                                            <img class="post-card__image" src="{{ preview_src }}" alt="{{ p.extra.preview_image_alt | default(value=p.title) }}" loading="lazy">
+                                            <img class="post-card__image" src="{{ preview_src }}" alt="{{ preview_alt }}" loading="lazy" decoding="async">
                                         {% endif %}
                                         <div class="post-card__content">
                                             <div class="post-card__title">{{ p.title }}</div>
@@ -355,5 +350,22 @@
             })();
         </script>
         <script src="{{ get_url(path="js/theme-toggle.js", trailing_slash=false) | safe }}"></script>
+        <script>
+            window.addEventListener("load", function() {
+                var loadGoatCounter = function() {
+                    var script = document.createElement("script");
+                    script.src = "https://gc.zgo.at/count.js";
+                    script.async = true;
+                    script.dataset.goatcounter = "https://yelladev.goatcounter.com/count";
+                    document.body.appendChild(script);
+                };
+
+                if ("requestIdleCallback" in window) {
+                    window.requestIdleCallback(loadGoatCounter);
+                } else {
+                    window.setTimeout(loadGoatCounter, 200);
+                }
+            });
+        </script>
     </body>
 </html>

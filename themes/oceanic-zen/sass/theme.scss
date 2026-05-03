@@ -206,7 +206,19 @@ html {
         580px -580px, -470px 470px, 620px 620px, -540px 540px, 490px -490px,
         -560px 560px, 610px -610px, -440px 440px, 590px 590px, -510px 510px,
         570px -570px, -460px 460px, 630px 630px, -500px 500px, 550px -550px,
-        -640px 640px, 480px -480px, -520px 520px, 660px 660px, -530px 530px; }
+         -640px 640px, 480px -480px, -520px 520px, 660px 660px, -530px 530px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-theme="dark"] body::before {
+        animation: none;
+    }
+}
+
+@media (max-width: 900px) {
+    [data-theme="dark"] body::before {
+        animation: none;
+    }
 }
 
 body {
@@ -906,9 +918,9 @@ header .header-right .nav-link.is-active {
     box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
 }
 
-.theme-toggle i {
-    font-size: 18px;
-    line-height: 1;
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
     display: block;
 }
 
@@ -1108,8 +1120,10 @@ article.post li {
     gap: 6px;
 }
 
-.post-tts i {
-    font-size: 16px;
+.post-tts svg {
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
 .post-tts:hover {
@@ -1146,6 +1160,12 @@ article.post li {
 
 .rss-ribbon:visited {
     color: #ffffff;
+}
+
+.rss-ribbon svg {
+    width: 14px;
+    height: 14px;
+    display: block;
 }
 
 @media (max-width: 900px) {
