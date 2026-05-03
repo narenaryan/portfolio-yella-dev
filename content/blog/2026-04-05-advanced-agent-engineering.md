@@ -2,6 +2,10 @@
 title = "What Running a Multi-Agent Software Project Actually Looks Like"
 slug = "run-multi-agent-software-project"
 date = "2026-04-05"
+
+[extra]
+card_image = "/card-images/blog/run-multi-agent-software-project.webp"
+card_image_alt = "Airplane wing above a snowy runway"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/airport-snow.jpeg" />

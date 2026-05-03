@@ -2,6 +2,10 @@
 title = "What AI really needs from you while collaborating"
 slug = "what-ai-needs-from-you"
 date = "2026-04-12"
+
+[extra]
+card_image = "/card-images/blog/what-ai-needs-from-you.webp"
+card_image_alt = "Geese in motion"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/gooses.jpeg" />

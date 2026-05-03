@@ -127,27 +127,17 @@
             <div class="border"></div>
             {% if section.title == "Blog" %}
             <a class="rss-ribbon" href="{{ get_url(path="blog/atom.xml", trailing_slash=false) }}" aria-label="RSS Feed">
-                <i class="bx bx-rss" aria-hidden="true"></i>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M6 18a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm-4 2a4 4 0 1 0 8 0 4 4 0 0 0-8 0Zm1-8v3a8 8 0 0 1 8 8h3C14 17.37 8.63 12 2 12Zm0-6v3c9.94 0 18 8.06 18 18h3C24 15.4 14.6 6 3 6Z"></path>
+                </svg>
                 <span>RSS</span>
             </a>
             {% endif %}
             <ul class="post-list">
             {% for p in section.pages %}
-                {% set preview_src = "" %}
+                {% set preview_src = p.extra.card_image | default(value="") %}
+                {% set preview_alt = p.extra.card_image_alt | default(value=p.title) %}
                 {% if section.title == "Blog" %}
-                    {% if p.extra.preview_image %}
-                        {% set preview_src = p.extra.preview_image %}
-                    {% else %}
-                        {% set parts = p.content | split(pat='src="') %}
-                        {% if parts | length > 1 %}
-                            {% set preview_src = (parts[1] | split(pat='"') | first) %}
-                        {% else %}
-                            {% set parts = p.content | split(pat="src='") %}
-                            {% if parts | length > 1 %}
-                                {% set preview_src = (parts[1] | split(pat="'") | first) %}
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
                 {% endif %}
                 <li class="post-card">
                     <a class="post-card__link" href="{{ p.permalink | safe}}">
@@ -155,8 +145,9 @@
                             <img
                                 class="post-card__image"
                                 src="{{ preview_src }}"
-                                alt="{{ p.extra.preview_image_alt | default(value=p.title) }}"
+                                alt="{{ preview_alt }}"
                                 loading="lazy"
+                                decoding="async"
                             >
                         {% endif %}
                         <div class="post-card__content">

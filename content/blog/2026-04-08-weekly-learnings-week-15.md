@@ -2,6 +2,10 @@
 title = "Things I Learnt This Week (Week 15 of 2026): Mental Models, AI Agent Security, Future of Work, Flat Orgs"
 slug = "weekly-learnings-week-15-2026"
 date = "2026-04-08"
+
+[extra]
+card_image = "/card-images/blog/weekly-learnings-week-15-2026.webp"
+card_image_alt = "Rain falling over the Denver skyline"
 +++
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/denver_rain.jpg" />
 
