@@ -5,7 +5,9 @@ weight = 0
 
 <div class="home-hero">
   <div class="home-hero-text">
-    Hi, I’m Naren Yellavula — a Staff Cloud Security Engineer in the San Francisco Bay Area. I’ve spent over a decade building cloud software, APIs, Micro‑services, CLI tools and currently focused on applying cloud‑native platform engineering to solve large‑scale infrastructure challenges without compromising Security.
+    <div class="home-kicker">Cloud security · platform engineering · writing</div>
+    <h1 class="home-title">Naren Yellavula</h1>
+    <p class="home-copy">Staff Cloud Security Engineer in the San Francisco Bay Area. I build cloud software, APIs, microservices, and CLI tools, with a current focus on cloud-native platform engineering for large-scale infrastructure challenges without compromising security.</p>
     <div class="home-social">
       <a href="https://github.com/narenaryan">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
