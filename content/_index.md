@@ -35,7 +35,4 @@ weight = 0
       </a>
     </div>
   </div>
-  <div class="home-hero-media">
-    <img src="https://d3bphourhbt2ew.cloudfront.net/images/nyell-crop.jpg" alt="Naren Yellavula" width="324" height="366" fetchpriority="high" decoding="async" />
-  </div>
 </div>

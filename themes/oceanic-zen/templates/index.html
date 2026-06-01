@@ -221,9 +221,16 @@
                                 <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path fill="currentColor" d="M20 15.31A8 8 0 0 1 8.69 4 9 9 0 1 0 20 15.31Z"></path>
                                 </svg>
-                                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-                                    <path fill="currentColor" d="M11 1h2v4h-2zm0 18h2v4h-2zm8-8h4v2h-4zM1 11h4v2H1zm15.36-7.78 1.41 1.41-2.83 2.83-1.41-1.41zm-8.48 8.48 1.41 1.41-2.83 2.83-1.41-1.41zm0-4.24L5.05 4.64l1.41-1.41 2.83 2.83zm8.48 8.48-2.83-2.83 1.41-1.41 2.83 2.83z"></path>
+                                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                    <circle cx="12" cy="12" r="4"></circle>
+                                    <line x1="12" y1="2" x2="12" y2="4"></line>
+                                    <line x1="12" y1="20" x2="12" y2="22"></line>
+                                    <line x1="2" y1="12" x2="4" y2="12"></line>
+                                    <line x1="20" y1="12" x2="22" y2="12"></line>
+                                    <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+                                    <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+                                    <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+                                    <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
                                 </svg>
                             </button>
                         </li>
@@ -258,7 +265,7 @@
                             <a class="home-recent__all" href="{{ blog_section.permalink | safe }}">All posts →</a>
                         </div>
                         <ul class="post-list">
-                            {% for p in blog_section.pages | slice(end=3) %}
+                            {% for p in blog_section.pages | slice(end=8) %}
                                 {% set preview_src = p.extra.card_image | default(value="") %}
                                 {% set preview_alt = p.extra.card_image_alt | default(value=p.title) %}
                                 <li class="post-card">
