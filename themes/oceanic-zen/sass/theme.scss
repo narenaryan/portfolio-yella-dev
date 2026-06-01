@@ -891,9 +891,9 @@ header .header-right .nav-link.is-active {
     color: var(--link-hover);
 }
 
-.theme-toggle i {
-    font-size: 18px;
-    line-height: 1;
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
     display: block;
 }
 
@@ -1132,8 +1132,10 @@ article.post li {
     gap: 6px;
 }
 
-.post-tts i {
-    font-size: 16px;
+.post-tts svg {
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
 .post-tts:hover {
@@ -1170,6 +1172,12 @@ article.post li {
 
 .rss-ribbon:visited {
     color: #ffffff;
+}
+
+.rss-ribbon svg {
+    width: 14px;
+    height: 14px;
+    display: block;
 }
 
 @media (max-width: 900px) {

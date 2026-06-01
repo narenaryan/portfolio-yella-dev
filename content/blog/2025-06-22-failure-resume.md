@@ -2,7 +2,11 @@
 title = "My Failure Resume"
 slug = "failure-resume"
 date = "2025-06-22"
-extra.class = "post-failure-resume"
+
+[extra]
+class = "post-failure-resume"
+card_image = "/card-images/blog/failure-resume.webp"
+card_image_alt = "Black and white view of the Bay Bridge"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/baybridge_bw.jpg" />

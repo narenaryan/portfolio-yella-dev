@@ -2,6 +2,10 @@
 title = "How I built this portfolio ground up (TLDR)"
 slug = "building-blog-with-zola-ground-up"
 date = "2026-02-22"
+
+[extra]
+card_image = "/card-images/blog/building-blog-with-zola-ground-up.webp"
+card_image_alt = "Brown leaf resting on the forest floor"
 +++
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
