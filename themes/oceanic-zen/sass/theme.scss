@@ -72,9 +72,27 @@
     font-display: swap;
 }
 
-$font: "Halvar Mittel", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-$font-head: "Halvar Mittel", "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-$font-mono: "TeX Gyre Cursor", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font:
+    "Halvar Mittel",
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+$font-head:
+    "Halvar Mittel",
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+$font-mono:
+    "TeX Gyre Cursor", "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 $padding: 8px;
 $replit-orange: #ff3c00;
 $replit-black: #0e0e0f;
@@ -178,7 +196,6 @@ header {
     align-items: center;
 }
 
-
 footer {
     color: var(--muted);
     padding: 0 20px 20px 20px;
@@ -216,7 +233,11 @@ ul ul {
 
 a {
     color: var(--link);
-    text-decoration-color: color-mix(in srgb, var(--top-accent) 55%, transparent);
+    text-decoration-color: color-mix(
+        in srgb,
+        var(--top-accent) 55%,
+        transparent
+    );
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
 }
@@ -334,12 +355,19 @@ hr {
     border-radius: var(--radius-lg);
     background: var(--panel-bg);
     overflow: hidden;
-    transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+    transition:
+        background 0.16s ease,
+        border-color 0.16s ease,
+        transform 0.16s ease;
 }
 
 .post-card:hover {
     background: var(--surface-raised);
-    border-color: color-mix(in srgb, var(--top-accent) 42%, var(--panel-border));
+    border-color: color-mix(
+        in srgb,
+        var(--top-accent) 42%,
+        var(--panel-border)
+    );
     transform: translateY(-1px);
 }
 
@@ -511,7 +539,9 @@ h6:hover .zola-anchor {
     height: auto;
     display: block;
     border-radius: var(--radius-lg);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .photo-zoom-trigger:hover img,
@@ -752,18 +782,6 @@ pre code {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-}
-
-.logo::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    border-radius: var(--radius-sm);
-    background: var(--top-accent);
-    box-shadow:
-        16px 0 0 var(--top-accent),
-        0 16px 0 var(--top-accent),
-        16px 16px 0 transparent;
 }
 
 .date {
@@ -1096,7 +1114,6 @@ article.post li {
     margin-right: 8px;
     color: var(--muted);
 }
-
 
 .post-meta-inline {
     color: var(--muted);
