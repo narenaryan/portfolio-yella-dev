@@ -32,13 +32,7 @@
     font-display: swap;
 }
 
-$font:
-    "Lora",
-    Georgia,
-    Cambria,
-    "Times New Roman",
-    Times,
-    serif;
+$font: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
 $font-head:
     "Lexend Deca",
     "Inter",
@@ -77,6 +71,7 @@ $panel-border: #d7d4ce;
     --panel-border: #d7d4ce;
     --marker: #ff3c00;
     --code-bg: #efebe4;
+    --code-border: #ddd8cf;
     --code-text: #1a1b1b;
     --pre-bg: #111213;
     --pre-text: #faf6f1;
@@ -107,7 +102,8 @@ $panel-border: #d7d4ce;
     --panel-bg: #1a1b1b;
     --panel-border: #36373b;
     --marker: #ff7a45;
-    --code-bg: #111213;
+    --code-bg: #353841;
+    --code-border: #4a4e57;
     --code-text: #faf6f1;
     --pre-bg: #0e0e0f;
     --pre-text: #faf6f1;
@@ -343,7 +339,8 @@ hr {
 }
 
 .post-card__title {
-    font-weight: 600;
+    font-family: $font-head;
+    font-weight: 500;
     line-height: 1.35;
     flex: 1 1 auto;
     min-width: 0;
@@ -593,10 +590,15 @@ article.post > div[itemprop="articleBody"] > p:first-of-type {
     margin-top: 0.2em;
 }
 
-/* Hide inline images in the blog post page view. */
-article.post > div[itemprop="articleBody"] img,
-article.post > div[itemprop="articleBody"] .photo-bleed,
-article.post > div[itemprop="articleBody"] figure {
+article.post img {
+    max-width: 100%;
+    padding: 0;
+    margin: 1.2rem 0;
+}
+
+/* Hide only the lead/title (hero) image at the very top of each post.
+   Inline content images (diagrams, screenshots, logos) are kept. */
+article.post > div[itemprop="articleBody"] > img:first-child {
     display: none;
 }
 
@@ -715,7 +717,8 @@ p > code {
     font-weight: 600;
     color: var(--code-text);
     background: var(--code-bg);
-    padding: 0 4px;
+    border: 1px solid var(--code-border);
+    padding: 0 5px;
     border-radius: 4px;
 }
 
@@ -805,6 +808,7 @@ header .header-right li {
 }
 
 header .header-right .nav-link {
+    font-family: $font-head;
     color: var(--muted);
     font-weight: 600;
     text-decoration: none;
@@ -910,6 +914,8 @@ article.post ol {
 }
 
 article.post li {
+    font-size: 18px;
+    line-height: 1.78;
     margin: 0.5rem 0;
 }
 
@@ -932,11 +938,12 @@ article.post li {
 }
 
 .home-kicker {
+    font-family: $font-head;
     color: var(--top-accent);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .home-title {
@@ -998,6 +1005,7 @@ article.post li {
 }
 
 .home-recent__label {
+    font-family: $font-head;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0;
