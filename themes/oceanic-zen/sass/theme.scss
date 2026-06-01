@@ -1,46 +1,6 @@
 @import "colors";
 
 @font-face {
-    font-family: "Halvar Mittel";
-    src: url("fonts/HalvarMittel-Rg.otf") format("opentype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Halvar Mittel";
-    src: url("fonts/HalvarMittel-Bd.otf") format("opentype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Halvar Mittel";
-    src: url("fonts/HalvarMittel-RgSlanted.otf") format("opentype");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Halvar Mittel";
-    src: url("fonts/HalvarMittel-BdSlanted.otf") format("opentype");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Hermann";
-    src: url("fonts/Hermann-Bold.otf") format("opentype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: "TeX Gyre Cursor";
     src: url("fonts/TexGyreCursor-Regular.otf") format("opentype");
     font-weight: 400;
@@ -73,16 +33,14 @@
 }
 
 $font:
-    "Halvar Mittel",
-    "Inter",
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+    "Lora",
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif;
 $font-head:
-    "Halvar Mittel",
+    "Lexend Deca",
     "Inter",
     "Segoe UI",
     system-ui,
