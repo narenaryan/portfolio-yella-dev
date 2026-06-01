@@ -10,39 +10,28 @@ card_image_alt = "Brown leaf resting on the forest floor"
 
 <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
 
-## Introduction
+## Why I built this
 
 Hi readers. In this article, I would like to show the process I took for building & publishing this website (https://yella.dev). But before that, let's see some background.
 
-## Goal
-
-To build a personal website with blog posts written in Markdown & Text-to-speech features like "Listen". The content should be committed & pushed to GitHub which should be automatically deployed.
-
-
-## Why I created this custom Portfolio Website ?
+My goal was to build a personal website with blog posts written in Markdown & Text-to-speech features like "Listen". The content should be committed & pushed to GitHub, which should be automatically deployed.
 
 I designed & deployed this website to create a clean space to host my portfolio and writings. I've tried popular platforms like Wordpress, Medium & Substack but didn't like their customization options to reflect my personal taste. Therefore, I decided to create a new portfolio that lists my projects, books & writings in one single place, and this website is the answer.
 
-I bought my domain (yella.dev) on Namecheap Domain Seller. Word `Yella` is a prefix of my last name: Yellavula.
+I bought my domain (yella.dev) on Namecheap Domain Seller. The word `Yella` is a prefix of my last name: Yellavula.
 
 ## Options for static site generation
-I shortlisted few static site generators like Pelican (Python), Astro Docs (JavaScript), Hugo (Go), Zola (Rust). I finally picked Zola & discarded rest for my portfolio due to below reasons:
 
-### 1. Pelican - Python ❌
+I shortlisted a few static site generators and finally picked Zola, discarding the rest for the reasons below:
 
-I previously used [Pelican](https://getpelican.com/) static site generator before and wanted to try something modern this time.
+| Generator | Language | Verdict | Why |
+|-----------|----------|---------|-----|
+| [Pelican](https://getpelican.com/) | Python | ❌ | I'd used it before and wanted to try something more modern this time. |
+| [Astro Docs](https://astro.build/) | JavaScript | ❌ | Not a fan of JS tooling — too many NPM dependencies & security vulnerabilities. I also wanted to keep static site generation and builds as separate technologies. |
+| [Hugo](https://gohugo.io/) | Go | ❌ | A great tool, but complex with a steep learning curve. My goal was to get started as fast as possible. |
+| [Zola](https://www.getzola.org/) | Rust | ✅ | The most modern of the lot, combining performance and simplicity — the fastest way to write in Markdown & build a static site, with a clean set of themes. |
 
-### 2. Astro Docs - JS ❌
-
-I am not a big fan of JavaScript tools due to so many NPM dependencies & security vulnerabilities. Also, I want to keep static site generation & builds as separate technologies. Therefore I skipped [Astro Docs](https://astro.build/)
-
-### 3. Hugo - Go ❌
-
-[Hugo](https://gohugo.io/) is a great static site generator tool, but complex and has a steep learning curve. My goal is to get started as fast as possible, and picking Hugo won't help my purpose.
-
-### 4. Zola - Rust ✅
-
-Zola is the latest static site generator of all which combines both performance and simplicity. After taking a look at GitHub project, I am convinced this is the fastest way to write in Markdown & build a static site. Zola also got a modern set of themes, and I liked a theme called "Oceanic Zen" for my blog & website.
+I picked Zola for its mix of speed and simplicity, and liked a theme called "Oceanic Zen" for my blog & website.
 
 ## Initial Setup with Zola
 
