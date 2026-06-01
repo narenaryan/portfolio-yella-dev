@@ -602,10 +602,11 @@ article.post > div[itemprop="articleBody"] > p:first-of-type {
     margin-top: 0.2em;
 }
 
-article.post img {
-    max-width: 100%;
-    padding: 0;
-    margin: 1.2rem 0;
+/* Hide inline images in the blog post page view. */
+article.post > div[itemprop="articleBody"] img,
+article.post > div[itemprop="articleBody"] .photo-bleed,
+article.post > div[itemprop="articleBody"] figure {
+    display: none;
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
