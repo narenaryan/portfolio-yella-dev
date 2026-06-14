@@ -8,7 +8,7 @@ card_image = "/card-images/blog/read-my-past-writings.webp"
 card_image_alt = "Orange cone beside a coiled black cable"
 +++
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/vlc-wire.jpg" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/vlc-wire.jpg" alt="VLC media player wireframe illustration" />
 
 Hi, I am transitioning myself from Medium to this website to create custom look and feel for my writings.
 

@@ -8,7 +8,7 @@ card_image = "/card-images/blog/run-multi-agent-software-project.webp"
 card_image_alt = "Airplane wing above a snowy runway"
 +++
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/airport-snow.jpeg" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/airport-snow.jpeg" alt="Airplane wing above a snowy runway" />
 
 ## The Problem with "Just Ask the AI"
 
@@ -58,7 +58,7 @@ Execution is a different story. Once a task is scoped and handed off, the worker
 
 The rule of thumb: **use expensive models to think, use cheap models to execute.**
 
-<img style="width: 100vw;" src="/orchestrator-pattern.svg" alt="Orchestrator pattern diagram showing coordinator delegating to specialized worker agents" />
+<img width="900" height="580" src="/orchestrator-pattern.svg" alt="Orchestrator pattern diagram showing coordinator delegating to specialized worker agents" />
 
 ## The Problem Repository
 
@@ -172,7 +172,7 @@ The practical setup:
 
 ## Putting It Together: A Full Development Cycle
 
-<img style="width: 100vw;" src="/dev-cycle.svg" alt="Full development cycle connecting Linear, Orchestrator, Problem Repository, Git, and Greptile" />
+<img width="900" height="560" src="/dev-cycle.svg" alt="Full development cycle connecting Linear, Orchestrator, Problem Repository, Git, and Greptile" />
 
 Here is what a single feature cycle looks like with all four patterns in place:
 
@@ -200,7 +200,7 @@ After the PR is approved and merged, the orchestrator moves the Linear issue to 
 
 If the retry implementation surfaced a new issue — say, the AWS SDK returns a non-retriable error code that looks retriable — the agent appends a new entry to `PROBLEMS.md` before closing the task.
 
-<img style="width: 100vw;" src="/wave-execution.svg" alt="Wave execution timeline showing parallel workstreams with integration gates" />
+<img width="900" height="480" src="/wave-execution.svg" alt="Wave execution timeline showing parallel workstreams with integration gates" />
 
 ## What This Pattern Assumes
 

@@ -8,7 +8,7 @@ card_image = "/card-images/blog/building-blog-with-zola-ground-up.webp"
 card_image_alt = "Brown leaf resting on the forest floor"
 +++
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/brown-leaf.jpg" alt="Brown leaf resting on the forest floor" />
 
 ## Why I built this
 
@@ -81,7 +81,7 @@ The architecture has four main phases:
 
 These four phases are divided into five partitions as shown in the below flow diagram.
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/arch.png" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/arch.png" alt="Deployment architecture diagram for the blog publishing and delivery pipeline" />
 
 The architecture is straight-forward with separation of responsibility handled by different entities. For example, Publishing happens locally and then pushed to GitHub repository.
 A GitHub CI workflow extracts text from new article, and converts it into audio using OpenAI Whisper API, then upload to S3. Finally, there is a cache invalidation step that resets the blog static assets like images and audio to serve fresh content. This is invalidating all at the moment, but can be optimized further.
@@ -139,7 +139,7 @@ There are multiple security aspects considered during the development.
 3. The source code is scanned with a SAST tool like Semgrep to make sure code is free from supply-chain vulnerabilities.
 4. Add Web Application Firewall (WAF) for both Amplify App (blog content) & CloudFront distribution (blog static assets) to protect from bots & common attacks
 
-  <img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/amplify-waf.png" />
+  <img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/amplify-waf.png" alt="AWS Amplify firewall settings screen" />
   Make sure to toggle these settings ON on Amplify Firewall:
 
   1. Enable Amplify-recommended Firewall protection

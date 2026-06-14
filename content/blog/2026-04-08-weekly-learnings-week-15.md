@@ -7,7 +7,7 @@ date = "2026-04-08"
 card_image = "/card-images/blog/weekly-learnings-week-15-2026.webp"
 card_image_alt = "Rain falling over the Denver skyline"
 +++
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/denver_rain.jpg" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/denver_rain.jpg" alt="Rain falling over the Denver skyline" />
 
 A few things I read this week that were worth slowing down for.
 

@@ -8,7 +8,7 @@ card_image = "/card-images/blog/what-ai-needs-from-you.webp"
 card_image_alt = "Geese in motion"
 +++
 
-<img style="width: 100vw;" width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/gooses.jpeg" />
+<img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/gooses.jpeg" alt="Geese in motion" />
 
 
 This article is about what Large Language Models (LLMs) really enjoy while collaborating with a user. Sometimes you feel they are cutting corners, and other times they are engaged. It is obvious to us. Certain inputs either extend or reduce quality outputs generated from AI. In this article, I want to discuss a few key elements which can influence AI/LLM behavior significantly.

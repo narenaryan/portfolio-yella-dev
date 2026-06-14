@@ -210,6 +210,29 @@ a:focus-visible {
     border-radius: 4px;
 }
 
+.skip-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    padding: 8px 12px;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--text);
+    font-family: $font-head;
+    font-weight: 700;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+main:focus {
+    outline: none;
+}
+
 h1 {
     font-size: 42px;
     margin: 0 0 0.6em 0;
@@ -482,9 +505,11 @@ h6:hover .zola-anchor {
 
 .photo-zoom-trigger img {
     width: 100%;
+    aspect-ratio: 16 / 9;
     height: auto;
     display: block;
     border-radius: var(--radius-lg);
+    object-fit: cover;
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
@@ -585,6 +610,11 @@ article.post {
     margin: 0 auto;
 }
 
+article.post > div[itemprop="articleBody"] {
+    max-width: 72ch;
+    margin: 0 auto;
+}
+
 article.post > div[itemprop="articleBody"] > p:first-of-type {
     font-size: 1.05em;
     margin-top: 0.2em;
@@ -682,7 +712,10 @@ main blockquote p {
 }
 
 main table {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.95rem;
@@ -1141,6 +1174,16 @@ article.post li {
         padding: 6px 16px 20px 16px;
     }
 
+    header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px 16px 10px 16px;
+    }
+
+    header .header-right ul {
+        gap: 8px 10px;
+    }
+
     .home-hero-text {
         padding: 18px;
         font-size: 16px;
@@ -1155,11 +1198,37 @@ article.post li {
         gap: 2px 10px;
     }
 
+    .post-card__title {
+        flex-basis: 100%;
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
+    }
+
     .post-toc {
         padding: 10px 12px;
     }
 
     .photo-bleed figcaption {
         padding: 0 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+
+    .post-card,
+    .photo-zoom-trigger img,
+    .photo-lightbox {
+        transition: none;
+    }
+
+    .photo-zoom-trigger:hover img,
+    .photo-zoom-trigger:focus-visible img {
+        transform: none;
     }
 }

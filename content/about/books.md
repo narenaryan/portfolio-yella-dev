@@ -12,7 +12,7 @@ Explore the necessary concepts of REST API development by building few real worl
 
 
 <a href="https://www.amazon.com/Building-RESTful-Web-services-gracefully-ebook/dp/B072QB8KL1">
-    <img width="300px" src="https://m.media-amazon.com/images/I/71h54RSJW5L._SL1500_.jpg"></a>
+    <img width="300" src="https://m.media-amazon.com/images/I/71h54RSJW5L._SL1500_.jpg" alt="Cover of Building RESTful Web services with Go"></a>
 
 See on Amazon: [amazon.com](https://www.amazon.com/Building-RESTful-Web-services-gracefully-ebook/dp/B072QB8KL1)
 
@@ -24,7 +24,7 @@ Design production-ready, testable, and maintainable RESTful web services for the
 
 <a href="https://www.amazon.com/Hands-RESTful-Web-Services-microservices/dp/1838643575/">
 
-<img width="300px" src="https://m.media-amazon.com/images/I/71QojJ1BPIL._SL1360_.jpg">
+<img width="300" src="https://m.media-amazon.com/images/I/71QojJ1BPIL._SL1360_.jpg" alt="Cover of Hands-On RESTful Web Services with Go">
     </a>
 
 See on Amazon: [amazon.com](https://www.amazon.com/Hands-RESTful-Web-Services-microservices/dp/1838643575/)

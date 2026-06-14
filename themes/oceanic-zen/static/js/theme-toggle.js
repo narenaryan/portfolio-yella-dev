@@ -10,6 +10,9 @@
         } else {
             root.removeAttribute("data-theme");
         }
+        if (toggle) {
+            toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+        }
     };
 
     const getPreferredTheme = () => {
