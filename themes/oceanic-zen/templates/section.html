@@ -8,146 +8,60 @@
             <div class="section-intro">{{ section.extra.intro }}</div>
         {% endif %}
         {% if section.extra.photos and section.extra.photos | length > 0 %}
-            <div class="photo-wall">
-                {% for photo in section.extra.photos %}
-                    {% set photo_label = photo.alt | default(value=photo.caption | default(value=section.title)) %}
-                    <figure class="photo-bleed">
-                        <button
-                            class="photo-zoom-trigger"
-                            type="button"
-                            data-full="{{ photo.src }}"
-                            data-alt="{{ photo_label }}"
-                            {% if photo.caption %}data-caption="{{ photo.caption }}"{% endif %}
-                            aria-label="Open photo: {{ photo_label }}"
+            {% set total_photos = section.extra.photos | length %}
+            <div class="photo-gallery" data-photo-gallery data-gallery-total="{{ total_photos }}">
+                <div class="photo-gallery__progress" aria-live="polite">
+                    <span class="photo-gallery__progress-current" data-gallery-current>1</span>
+                    <span class="photo-gallery__progress-separator" aria-hidden="true">/</span>
+                    <span class="photo-gallery__progress-total">{{ total_photos }}</span>
+                </div>
+                <div class="photo-gallery__track">
+                    {% for photo in section.extra.photos %}
+                        {% set photo_label = photo.alt | default(value=photo.caption | default(value=section.title)) %}
+                        {% set slide_id = "gallery-slide-" ~ loop.index %}
+                        <section
+                            class="gallery-slide{% if loop.first %} is-active{% endif %}"
+                            id="{{ slide_id }}"
+                            data-gallery-slide
+                            data-gallery-index="{{ loop.index }}"
                         >
-                            <img
-                                src="{{ photo.src }}"
-                                alt="{{ photo_label }}"
-                                {% if photo.width %}width="{{ photo.width }}"{% endif %}
-                                {% if photo.height %}height="{{ photo.height }}"{% endif %}
-                                loading="lazy"
-                            >
-                        </button>
-                        {% if photo.caption %}
-                            <figcaption>{{ photo.caption }}</figcaption>
-                        {% endif %}
-                    </figure>
-                {% endfor %}
-            </div>
-            <div class="photo-lightbox" aria-hidden="true" hidden>
-                <div class="photo-lightbox__backdrop" data-photo-close></div>
-                <div class="photo-lightbox__content" role="dialog" aria-modal="true" aria-label="Photo viewer" tabindex="-1">
-                    <button class="photo-lightbox__close" type="button" aria-label="Close photo" data-photo-close>
-                        <span aria-hidden="true">Close</span>
-                    </button>
-                    <figure class="photo-lightbox__figure">
-                        <img class="photo-lightbox__image" src="" alt="">
-                        <figcaption class="photo-lightbox__caption"></figcaption>
-                    </figure>
+                            <figure class="gallery-slide__figure">
+                                <img
+                                    class="gallery-slide__backdrop"
+                                    src="{{ photo.src }}"
+                                    alt=""
+                                    aria-hidden="true"
+                                    {% if loop.first %}loading="eager"{% else %}loading="lazy"{% endif %}
+                                >
+                                <div class="gallery-slide__content">
+                                    <img
+                                        class="gallery-slide__image"
+                                        src="{{ photo.src }}"
+                                        alt="{{ photo_label }}"
+                                        {% if photo.width %}width="{{ photo.width }}"{% endif %}
+                                        {% if photo.height %}height="{{ photo.height }}"{% endif %}
+                                        {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                                    >
+                                    <figcaption class="gallery-slide__caption">
+                                        <span class="gallery-slide__count">{{ loop.index }} / {{ total_photos }}</span>
+                                        {% if photo.caption %}
+                                            <span class="gallery-slide__caption-text">{{ photo.caption }}</span>
+                                        {% endif %}
+                                    </figcaption>
+                                    {% if loop.first and total_photos > 1 %}
+                                        <a class="gallery-slide__scroll-hint" href="#gallery-slide-2">Scroll for the next photo</a>
+                                    {% endif %}
+                                </div>
+                            </figure>
+                        </section>
+                    {% endfor %}
+                </div>
+                <div class="photo-gallery__dots" aria-hidden="true">
+                    {% for _photo in section.extra.photos %}
+                        <span class="photo-gallery__dot{% if loop.first %} is-active{% endif %}" data-gallery-dot data-gallery-index="{{ loop.index }}"></span>
+                    {% endfor %}
                 </div>
             </div>
-            <script>
-                (function() {
-                    var triggers = document.querySelectorAll(".photo-zoom-trigger");
-                    var lightbox = document.querySelector(".photo-lightbox");
-                    var lightboxContent = document.querySelector(".photo-lightbox__content");
-                    var lightboxImage = document.querySelector(".photo-lightbox__image");
-                    var lightboxCaption = document.querySelector(".photo-lightbox__caption");
-                    var closeButton = document.querySelector(".photo-lightbox__close");
-                    var closeButtons = document.querySelectorAll("[data-photo-close]");
-                    var lastFocused = null;
-
-                    if (!triggers.length || !lightbox || !lightboxImage || !lightboxCaption || !closeButton) {
-                        return;
-                    }
-
-                    function openLightbox(trigger) {
-                        lastFocused = document.activeElement;
-                        lightboxImage.src = trigger.getAttribute("data-full");
-                        lightboxImage.alt = trigger.getAttribute("data-alt") || "Photo";
-                        var caption = trigger.getAttribute("data-caption");
-                        if (caption) {
-                            lightboxCaption.textContent = caption;
-                            lightboxCaption.style.display = "block";
-                        } else {
-                            lightboxCaption.textContent = "";
-                            lightboxCaption.style.display = "none";
-                        }
-                        lightbox.hidden = false;
-                        lightbox.setAttribute("aria-hidden", "false");
-                        document.body.classList.add("is-photo-lightbox-open");
-                        requestAnimationFrame(function() {
-                            lightbox.classList.add("is-open");
-                            closeButton.focus();
-                        });
-                    }
-
-                    function closeLightbox() {
-                        if (lightbox.hidden) {
-                            return;
-                        }
-                        lightbox.classList.remove("is-open");
-                        lightbox.setAttribute("aria-hidden", "true");
-                        document.body.classList.remove("is-photo-lightbox-open");
-                        window.setTimeout(function() {
-                            lightbox.hidden = true;
-                            lightboxImage.src = "";
-                        }, 150);
-                        if (lastFocused) {
-                            lastFocused.focus();
-                        }
-                    }
-
-                    function trapFocus(event) {
-                        if (event.key !== "Tab" || lightbox.hidden) {
-                            return;
-                        }
-
-                        var focusable = lightboxContent.querySelectorAll(
-                            'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-                        );
-                        if (!focusable.length) {
-                            event.preventDefault();
-                            lightboxContent.focus();
-                            return;
-                        }
-
-                        var first = focusable[0];
-                        var last = focusable[focusable.length - 1];
-                        if (!lightboxContent.contains(document.activeElement)) {
-                            event.preventDefault();
-                            first.focus();
-                        } else if (event.shiftKey && (document.activeElement === first || document.activeElement === lightboxContent)) {
-                            event.preventDefault();
-                            last.focus();
-                        } else if (!event.shiftKey && document.activeElement === last) {
-                            event.preventDefault();
-                            first.focus();
-                        }
-                    }
-
-                    triggers.forEach(function(trigger) {
-                        trigger.addEventListener("click", function() {
-                            openLightbox(trigger);
-                        });
-                    });
-
-                    closeButtons.forEach(function(button) {
-                        button.addEventListener("click", closeLightbox);
-                    });
-
-                    document.addEventListener("keydown", function(event) {
-                        if (lightbox.hidden) {
-                            return;
-                        }
-                        if (event.key === "Escape") {
-                            closeLightbox();
-                            return;
-                        }
-                        trapFocus(event);
-                    });
-                })();
-            </script>
         {% else %}
             <p>Gallery coming soon.</p>
         {% endif %}
