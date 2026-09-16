@@ -82,9 +82,9 @@ alt = "California Street"
 caption = "California Street, SF"
 
 [[extra.photos]]
-src = "https://d3bphourhbt2ew.cloudfront.net/images/crab-cove-bird.jpg"
-alt = "Crab Cove Bird"
-caption = "A bird spotted at Crab Code Beach in Alameda"
+src = "https://d3bphourhbt2ew.cloudfront.net/images/trans-pyramid.jpg"
+alt = "Transpyramid Building in Fog, SF"
+caption = "Transpyramid Building in Fog, SF"
 
 [[extra.photos]]
 src = "https://d3bphourhbt2ew.cloudfront.net/images/tall-tree.jpg"
