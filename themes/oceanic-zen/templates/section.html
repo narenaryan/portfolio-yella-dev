@@ -2,69 +2,54 @@
 
 {% block main %}
     {% if section.title == "Photography" %}
-        <h1>{{ section.title }}</h1>
-        <div class="border"></div>
-        {% if section.extra.intro %}
-            <div class="section-intro">{{ section.extra.intro }}</div>
-        {% endif %}
-        {% if section.extra.photos and section.extra.photos | length > 0 %}
-            {% set total_photos = section.extra.photos | length %}
-            <div class="photo-gallery" data-photo-gallery data-gallery-total="{{ total_photos }}">
-                <div class="photo-gallery__progress" aria-live="polite">
-                    <span class="photo-gallery__progress-current" data-gallery-current>1</span>
-                    <span class="photo-gallery__progress-separator" aria-hidden="true">/</span>
-                    <span class="photo-gallery__progress-total">{{ total_photos }}</span>
+        <div class="photography" data-photo-gallery>
+            <div class="photography__intro">
+                <p class="photography__eyebrow">Naren Yellavula / Selected photographs</p>
+                <h1>{{ section.title }}<span aria-hidden="true">.</span></h1>
+                {% if section.extra.intro %}<p class="photography__description">{{ section.extra.intro }}</p>{% endif %}
+            </div>
+            {% if section.extra.photos and section.extra.photos | length > 0 %}
+                <div class="photography__collection-label">
+                    <span>Through my lens</span>
+                    <span>{{ section.extra.photos | length }} photographs</span>
                 </div>
-                <div class="photo-gallery__track">
+                <div class="photography__grid">
                     {% for photo in section.extra.photos %}
                         {% set photo_label = photo.alt | default(value=photo.caption | default(value=section.title)) %}
-                        {% set slide_id = "gallery-slide-" ~ loop.index %}
-                        <section
-                            class="gallery-slide{% if loop.first %} is-active{% endif %}"
-                            id="{{ slide_id }}"
-                            data-gallery-slide
-                            data-gallery-index="{{ loop.index }}"
-                        >
-                            <figure class="gallery-slide__figure">
-                                <img
-                                    class="gallery-slide__backdrop"
-                                    src="{{ photo.src }}"
-                                    alt=""
-                                    aria-hidden="true"
-                                    {% if loop.first %}loading="eager"{% else %}loading="lazy"{% endif %}
-                                >
-                                <div class="gallery-slide__content">
-                                    <img
-                                        class="gallery-slide__image"
-                                        src="{{ photo.src }}"
-                                        alt="{{ photo_label }}"
-                                        {% if photo.width %}width="{{ photo.width }}"{% endif %}
-                                        {% if photo.height %}height="{{ photo.height }}"{% endif %}
-                                        {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
-                                    >
-                                    <figcaption class="gallery-slide__caption">
-                                        <span class="gallery-slide__count">{{ loop.index }} / {{ total_photos }}</span>
-                                        {% if photo.caption %}
-                                            <span class="gallery-slide__caption-text">{{ photo.caption }}</span>
-                                        {% endif %}
-                                    </figcaption>
-                                    {% if loop.first and total_photos > 1 %}
-                                        <a class="gallery-slide__scroll-hint" href="#gallery-slide-2">Scroll for the next photo</a>
-                                    {% endif %}
-                                </div>
-                            </figure>
-                        </section>
+                        <figure class="photograph{% if loop.first %} photograph--lead{% endif %}">
+                            <a class="photograph__link" href="{{ photo.src }}" data-photo-link aria-label="View photograph: {{ photo_label }}">
+                                <img src="{{ photo.src }}" alt="{{ photo_label }}"
+                                    {% if photo.width %}width="{{ photo.width }}"{% endif %}
+                                    {% if photo.height %}height="{{ photo.height }}"{% endif %}
+                                    {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+                                <span class="photograph__expand" aria-hidden="true">View photograph ↗</span>
+                            </a>
+                            <figcaption><span class="photograph__number">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span><span data-photo-caption>{{ photo.caption | default(value=photo_label) }}</span></figcaption>
+                        </figure>
                     {% endfor %}
                 </div>
-                <div class="photo-gallery__dots" aria-hidden="true">
-                    {% for _photo in section.extra.photos %}
-                        <span class="photo-gallery__dot{% if loop.first %} is-active{% endif %}" data-gallery-dot data-gallery-index="{{ loop.index }}"></span>
-                    {% endfor %}
-                </div>
-            </div>
-        {% else %}
-            <p>Gallery coming soon.</p>
-        {% endif %}
+                <p class="photography__end">A few moments, held still.</p>
+                <dialog class="photo-viewer" aria-label="Photograph viewer" data-photo-viewer>
+                    <div class="photo-viewer__toolbar">
+                        <span data-viewer-count aria-live="polite" aria-atomic="true"></span>
+                        <button type="button" data-viewer-fit aria-pressed="false">Show full photo</button>
+                        <button type="button" data-viewer-close autofocus aria-label="Close photograph viewer">Close <span aria-hidden="true">×</span></button>
+                    </div>
+                    <figure class="photo-viewer__figure">
+                        <img data-viewer-image alt="">
+                        <figcaption data-viewer-caption></figcaption>
+                    </figure>
+                    <div class="photo-viewer__navigation">
+                        <button type="button" data-viewer-prev aria-label="Previous photograph">← Previous</button>
+                        <span class="photo-viewer__hint">← → to browse · Esc to close</span>
+                        <button type="button" data-viewer-next aria-label="Next photograph">Next →</button>
+                    </div>
+                </dialog>
+                <script src="{{ get_url(path="js/photo-gallery.js", trailing_slash=false) | safe }}" defer></script>
+            {% else %}
+                <p>Gallery coming soon.</p>
+            {% endif %}
+        </div>
     {% else %}
         {% if section.content %}
             <article itemscope itemtype="http://schema.org/BlogPosting">
