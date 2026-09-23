@@ -3,81 +3,78 @@
 [![Build](https://github.com/narenaryan/portfolio-yella-dev/actions/workflows/semgrep.yml/badge.svg)](https://github.com/narenaryan/portfolio-yella-dev/actions/workflows/semgrep.yml)
 [![TTS](https://github.com/narenaryan/portfolio-yella-dev/actions/workflows/tts.yml/badge.svg)](https://github.com/narenaryan/portfolio-yella-dev/actions/workflows/tts.yml)
 
+Personal site for Naren Yellavula, built with Next.js as a static export. It includes a Markdown-powered blog, photography gallery, project/about pages, and an automated TTS pipeline that generates MP3 narrations for blog posts.
 
-Personal site built with Zola. Includes blog, photography gallery, and an automated Polly TTS pipeline that generates MP3 narrations for blog posts.
+## Features
 
-Key Features:
+- **Next.js static site** using the App Router and `output: "export"`.
+- **Markdown content** loaded from the existing `content/` directory with TOML front matter.
+- **Minimal editorial design** using Merriweather for long-form reading.
+- **Blog narration** with per-post audio URLs based on the post slug.
+- **Photography gallery** with a full-screen lightbox and keyboard navigation.
+- **Playwright smoke tests** for home, blog posts, and photography.
+- **Security hygiene** with Semgrep secrets scanning on pushes/PRs.
 
-* **Zola static site** with custom theme and clean typography.
-* **Blog + SEO**: per‑post metadata, JSON‑LD, and canonical URLs.
-* **Photography section** with curated layout and captions.
-* **Automated TTS**: AWS Polly generates MP3s for posts and uploads to S3/CloudFront.
-* **Security hygiene**: Semgrep secrets scan on every push to `main`.
-
-# Architecture
-
-High‑level data flow:
-
-```
-content/blog/*.md
-        |
-        v
-  scripts/extract_post_text.py
-        |
-        v
-  scripts/chunk_text.py (<= 2800 chars)
-        |
-        v
-  OpenAI Whisper (neural voice)
-        |
-        v
-  MP3 chunks + ffmpeg concat
-        |
-        v
-S3 (yella-blog-assets/audio)
-        |
-        v
-CloudFront (d3bphourhbt2ew.cloudfront.net/audio)
-        |
-        v
-<audio> tag in post page
-```
-
-GitHub Actions flow:
-
-```
-GitHub push (main) or manual run
-        |
-        v
-GitHub OIDC -> AssumeRoleWithWebIdentity
-        |
-        v
-OpenAI Whisper + S3 Upload
-        |
-        v
-CloudFront serves MP3
-```
-
-# Getting Started
-
-## Install Zola
+## Commands
 
 ```bash
-brew install zola
+npm ci              # install dependencies
+npm run dev        # local development server
+npm run build      # production static export into out/
+npm run test:e2e   # Playwright smoke tests
 ```
 
-## Run locally
+## Deployment
+
+AWS Amplify builds the static site with:
 
 ```bash
-zola serve
+npm ci
+npm run build
 ```
 
-# Content
+The deployed artifact directory is:
 
-* Blog posts live in `content/blog/*.md`
-* Photography lives in `content/photography/_index.md` with external URLs.
+```text
+out/
+```
 
-Photography example:
+See `amplify.yml` for the current build configuration.
+
+## Project structure
+
+```text
+app/                    Next.js App Router pages and global CSS
+components/             Shared React components
+lib/content.ts          Markdown/TOML content loader
+content/blog/*.md       Blog posts
+content/about/*.md      About, books, and projects content
+content/photography/    Photography gallery metadata
+static/                 Source static assets retained from the old Zola site
+public/                 Public assets served by Next.js
+scripts/                TTS generation scripts
+tests/                  Playwright smoke tests
+```
+
+## Content
+
+Blog posts live in `content/blog/*.md` and use TOML front matter:
+
+```toml
++++
+title = "Post title"
+slug = "post-slug"
+date = "2026-04-12"
+
+[extra]
+card_image = "/card-images/blog/example.webp"
+card_image_alt = "Alt text"
++++
+```
+
+The current Next.js design does not show blog preview images or inline article images, but the metadata/content is preserved.
+
+Photography is configured in `content/photography/_index.md`:
 
 ```toml
 [extra]
@@ -89,56 +86,73 @@ alt = "Alt text"
 caption = "San Francisco, 2025"
 ```
 
-# TTS (AWS Polly)
+## Blog audio / TTS
 
-Audio URL base is configured in `config.toml`:
+Blog post pages render audio from CloudFront using the post slug:
 
-```toml
-[extra]
-audio_base_url = "https://d3bphourhbt2ew.cloudfront.net/audio"
+```text
+https://d3bphourhbt2ew.cloudfront.net/audio/{slug}.mp3
 ```
 
-## Generate all MP3s locally
+Keep the `slug` front matter stable unless you also regenerate and upload the matching MP3.
+
+High-level TTS flow:
+
+```text
+content/blog/*.md
+        |
+        v
+scripts/extract_post_text.py
+        |
+        v
+scripts/chunk_text.py
+        |
+        v
+OpenAI TTS API
+        |
+        v
+MP3 chunks + ffmpeg concat
+        |
+        v
+S3: yella-blog-assets/audio
+        |
+        v
+CloudFront
+        |
+        v
+<audio> tag in blog post page
+```
+
+Generate all MP3s locally:
 
 ```bash
 scripts/generate_tts.sh
 ```
 
-## Generate a single MP3
+Generate a single MP3:
 
 ```bash
 scripts/generate_tts_for_file.sh content/blog/2025-06-22-failure-resume.md
 ```
 
-## GitHub Actions (OIDC)
+Required for TTS generation:
+
+- `OPENAI_API_KEY`
+- `ffmpeg`
+- AWS credentials with access to upload audio assets
+
+## GitHub Actions
 
 Workflow files:
 
-* `.github/workflows/tts.yml` (changed posts only)
-* `.github/workflows/tts_full.yml` (all posts)
+- `.github/workflows/tts.yml` — regenerate audio for changed blog posts on `main`
+- `.github/workflows/tts_full.yml` — manual full audio regeneration
+- `.github/workflows/semgrep.yml` — secrets scan on pushes/PRs
 
-OIDC role trust (repo‑scoped):
+Required repo secret for TTS workflows:
 
-```
-repo:narenaryan/portfolio-yella-dev:ref:refs/heads/main
-```
+- `AWS_ROLE_ARN`
 
-Minimum IAM permissions:
+## Notes
 
-* `polly:SynthesizeSpeech`
-* `s3:PutObject`, `s3:AbortMultipartUpload`, `s3:ListBucket` on `yella-blog-assets/audio/*`
-
-Required repo secret:
-
-* `AWS_ROLE_ARN`
-
-# Secrets Scanning
-
-Semgrep runs on every push to `main` and on PRs:
-
-* `.github/workflows/semgrep.yml`
-
-# TODO
-
-* Add S3 existence checks to avoid re‑uploading unchanged audio.
-* Optional CloudFront invalidation for updated MP3s.
+The old Zola theme and config are still present in the repository for now, but the active site is the Next.js app. Amplify deploys the Next.js static export from `out/`.
