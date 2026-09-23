@@ -1,2 +1,8 @@
 .DS_Store
 public/
+
+node_modules/
+.next/
+out/
+test-results/
+playwright-report/
