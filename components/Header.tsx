@@ -3,8 +3,8 @@ import Link from 'next/link';
 const nav = [
   ['Blog', '/blog'],
   ['About', '/about'],
-  ['Books', '/about/books'],
-  ['Projects', '/about/projects'],
+  ['Books', '/books'],
+  ['Projects', '/projects'],
   ['Photography', '/photography'],
 ];
 
