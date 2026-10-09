@@ -8,6 +8,6 @@ export default async function BlogPage() {
   const posts = await getPosts();
   return <main className="container">
     <h1 className="page-title">Blog</h1>
-    <div className="grid">{posts.map((post) => <PostCard key={post.slug} post={post} />)}</div>
+    <div className="grid">{posts.map((post, index) => <PostCard key={post.slug} post={post} eager={index === 0} />)}</div>
   </main>;
 }
