@@ -17,7 +17,7 @@ Complaining is for individuals who cannot accept their situation and surrounding
 I ask myself why I complain, and I can think of multiple reasons:
 
 * We take pride in defending our mistakes.
-* Reality is too painful to accept
+* Reality is too painful to accept.
 * We cling to our miseries.
 * Complaining is tempting to the ego.
 * We use complaints to cover up our failures.
