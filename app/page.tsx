@@ -14,7 +14,7 @@ export default async function Home() {
     </section>
     <section className="home-recent">
       <h1 className="page-title">Recent writing</h1>
-      <div className="grid">{posts.map((post) => <PostCard key={post.slug} post={post} />)}</div>
+      <div className="grid">{posts.map((post, index) => <PostCard key={post.slug} post={post} eager={index === 0} />)}</div>
     </section>
   </main>;
 }

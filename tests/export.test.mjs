@@ -85,3 +85,27 @@ test('every exported blog post has exactly one unique curated PNG', async () => 
   }
   assert.equal(hashes.size, slugs.length, 'Every post must have a distinct image');
 });
+
+test('every blog row exports its matching optimized artwork panel', async () => {
+  const html = await readFile('out/blog/index.html', 'utf8');
+  const rows = [...html.matchAll(/<a\b[^>]*class="card card-with-artwork"[^>]*>(.*?)<\/a>/gs)];
+  assert.equal(rows.length, Object.keys(articles).length);
+  const slugs = [];
+  for (const [row] of rows) {
+    const slug = row.match(/href="\/blog\/([^/" ]+)\/?"/)[1];
+    slugs.push(slug);
+    assert.ok(articles[slug]);
+    assert.ok(row.includes(`src="/artwork/blog/${slug}.webp"`));
+    assert.ok(row.includes('alt=""'));
+    assert.ok(row.includes('width="320" height="320"'));
+    const bytes = await readFile(`out/artwork/blog/${slug}.webp`);
+    const info = await sharp(bytes).metadata();
+    assert.equal(info.format, 'webp');
+    assert.equal(info.width, 320);
+    assert.equal(info.height, 320);
+    assert.ok(bytes.length < 50_000, `${slug} should stay small enough for a list thumbnail`);
+    const expected = await sharp(`assets/social-art/${slug}.png`).resize(320, 320).webp({ quality: 82 }).toBuffer();
+    assert.deepEqual(bytes, expected, `${slug} must use its artwork-only source panel`);
+  }
+  assert.deepEqual(slugs.sort(), Object.keys(articles).sort());
+});
