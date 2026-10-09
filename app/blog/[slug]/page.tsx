@@ -1,3 +1,4 @@
+import { socialMetadata } from '@/lib/social';
 import { notFound } from 'next/navigation';
 import { getPost, getPosts } from '@/lib/content';
 
@@ -8,7 +9,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPost(slug);
-  return post ? { title: post.title, description: post.excerpt, openGraph: { images: post.cardImage ? [post.cardImage] : [] } } : {};
+  if (!post) return {};
+  return socialMetadata({
+    title: post.title, description: post.excerpt, path: `/blog/${post.slug}/`,
+    publishedTime: new Date(post.date).toISOString(),
+    image: post.cardImage ? {
+      url: post.cardImage.replace('/card-images/blog/', '/social/blog/').replace(/\.webp$/, '.jpg'),
+      width: 640, height: 360, type: 'image/jpeg',
+      alt: post.cardImageAlt || post.title,
+    } : undefined,
+  });
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {

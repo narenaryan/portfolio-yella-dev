@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { FontTester } from '@/components/FontTester';
+import { siteUrl } from '@/lib/social';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.yella.dev'),
+  metadataBase: new URL(siteUrl),
   title: { default: 'Naren Yellavula', template: '%s | yella.dev' },
   description: 'Personal site of Naren Yellavula — Staff Cloud Security Engineer, writer, and builder.',
-  openGraph: { images: ['https://d3bphourhbt2ew.cloudfront.net/images/nyell-crop.jpg'] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

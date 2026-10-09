@@ -5,7 +5,7 @@ date = "2026-04-12"
 
 [extra]
 card_image = "/card-images/blog/what-ai-needs-from-you.webp"
-card_image_alt = "Geese in motion"
+card_image_alt = "Geese swimming in a pond"
 +++
 
 <img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/gooses.jpeg" alt="Geese in motion" />

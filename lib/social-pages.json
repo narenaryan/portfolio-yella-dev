@@ -1,0 +1,34 @@
+{
+  "home": {
+    "path": "/",
+    "title": "Naren Yellavula",
+    "heading": "Naren Yellavula",
+    "subtitle": "Cloud security, software\nand the things I learn along the way.",
+    "description": "Staff Cloud Security Engineer. I write about cloud security, software, AI collaboration, books, and photography.",
+    "label": "WRITING & BUILDING"
+  },
+  "about": {
+    "path": "/about/",
+    "title": "About",
+    "heading": "A little about me.",
+    "subtitle": "Cloud security engineer.\nAuthor, builder and photographer.",
+    "description": "Meet Naren Yellavula, a Staff Cloud Security Engineer in the San Francisco Bay Area who builds software, writes books, and enjoys photography.",
+    "label": "ABOUT NAREN"
+  },
+  "books": {
+    "path": "/books/",
+    "title": "Books",
+    "heading": "From code to print.",
+    "subtitle": "Building RESTful web services\nand APIs with Go.",
+    "description": "Books by Naren Yellavula on building RESTful web services and APIs with Go, from the first service to production-ready systems.",
+    "label": "BOOKS BY NAREN"
+  },
+  "projects": {
+    "path": "/projects/",
+    "title": "Projects",
+    "heading": "Built to be useful.",
+    "subtitle": "Open-source tools for security,\nsoftware and working with AI.",
+    "description": "Explore Naren Yellavula's open-source projects, including Whispr, Scharf, promptML, Recaller, and Vidura.",
+    "label": "OPEN-SOURCE PROJECTS"
+  }
+}

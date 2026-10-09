@@ -5,7 +5,7 @@ date = "2026-04-08"
 
 [extra]
 card_image = "/card-images/blog/weekly-learnings-week-15-2026.webp"
-card_image_alt = "Rain falling over the Denver skyline"
+card_image_alt = "Person holding an umbrella on a rain-soaked city street"
 +++
 <img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/denver_rain.jpg" alt="Rain falling over the Denver skyline" />
 
