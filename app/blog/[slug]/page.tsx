@@ -1,3 +1,4 @@
+import { TableOfContents } from '@/components/TableOfContents';
 import { socialMetadata, articleImage } from '@/lib/social';
 import { notFound } from 'next/navigation';
 import { getPost, getPosts } from '@/lib/content';
@@ -26,7 +27,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <time className="article-date">{new Date(post.date).toLocaleDateString('en', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
       <h1>{post.title}</h1>
       <audio controls preload="none" src={`https://d3bphourhbt2ew.cloudfront.net/audio/${post.slug}.mp3`} />
-      <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="article-body">
+        <TableOfContents key={post.slug} headings={post.headings} />
+        <div className="prose" data-article-content dangerouslySetInnerHTML={{ __html: post.html }} />
+      </div>
     </article>
   </main>;
 }

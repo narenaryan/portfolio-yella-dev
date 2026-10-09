@@ -2,9 +2,7 @@ import { markdownExcerpt } from './excerpt';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import gfm from 'remark-gfm';
-import html from 'remark-html';
+import { renderMarkdown, type ArticleHeading } from './markdown';
 import toml from 'toml';
 
 const root = process.cwd();
@@ -16,14 +14,10 @@ export type Post = {
   date: string;
   excerpt: string;
   html: string;
+  headings: ArticleHeading[];
   cardImage?: string;
   cardImageAlt?: string;
 };
-
-async function renderMarkdown(markdown: string) {
-  const processed = await remark().use(gfm).use(html, { sanitize: false }).process(markdown);
-  return processed.toString();
-}
 
 function parseFile(filePath: string) {
   return matter(fs.readFileSync(filePath, 'utf8'), {
@@ -43,7 +37,7 @@ export async function getPosts(): Promise<Post[]> {
       slug: parsed.data.slug ?? file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, ''),
       date: String(parsed.data.date),
       excerpt: String(parsed.data.description || markdownExcerpt(parsed.content) || parsed.data.title),
-      html: await renderMarkdown(parsed.content),
+      ...await renderMarkdown(parsed.content),
       cardImage: parsed.data.extra?.card_image,
       cardImageAlt: parsed.data.extra?.card_image_alt,
     };
@@ -57,7 +51,7 @@ export async function getPost(slug: string) {
 
 export async function getPage(relativePath: string) {
   const parsed = parseFile(path.join(contentDir, relativePath));
-  return { title: parsed.data.title, html: await renderMarkdown(parsed.content), data: parsed.data };
+  return { title: parsed.data.title, ...await renderMarkdown(parsed.content), data: parsed.data };
 }
 
 export function getPhotography() {

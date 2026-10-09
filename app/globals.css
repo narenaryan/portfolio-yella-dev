@@ -173,3 +173,29 @@ a:hover { color: var(--link); }
 
   .photo-grid { grid-template-columns: 1fr; }
 }
+
+/* Keep the original article column; the contents rail occupies the wide margin. */
+.article-body { position: relative; }
+.article-toc { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.45; }
+.article-toc ol { list-style: none; margin: 0; padding: 0; }
+.article-toc ol ol { padding-left: 14px; }
+.article-toc a { display: block; padding: 7px 10px; border-left: 2px solid transparent; color: var(--muted); overflow-wrap: anywhere; }
+.article-toc a:hover { color: var(--link); }
+.article-toc a[aria-current="location"] { color: var(--link); border-left-color: var(--link); background: #edf2ee; font-weight: 600; }
+.article-toc a:focus-visible, .toc-mobile summary:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.toc-desktop { display: none; }
+.toc-title { margin: 0 0 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.toc-mobile { max-width: 680px; margin-bottom: 28px; border-block: 1px solid var(--line); }
+.toc-mobile summary { padding: 14px 2px; cursor: pointer; font-weight: 600; }
+.toc-mobile nav { padding-bottom: 14px; max-height: 50dvh; overflow-y: auto; overscroll-behavior: contain; }
+.prose :is(h1, h2, h3, h4, h5, h6)[id] { scroll-margin-top: 24px; }
+.prose :is(h4, h5, h6) { margin: 1.8em 0 .55em; font-weight: 700; }
+.prose :is(h1, h2, h3, h4, h5, h6)[id]:focus-visible { outline: 2px solid var(--link); outline-offset: 6px; }
+@media (min-width: 1280px) {
+  .article-toc { position: absolute; left: calc(100% + 16px); top: 0; bottom: 0; width: 220px; }
+  .toc-desktop { display: block; position: sticky; top: 24px; max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+  .toc-mobile { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
