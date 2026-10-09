@@ -47,3 +47,5 @@ for (const file of await readdir('static/card-images/blog')) {
     .toFile(`static/social/blog/${file.replace(/\.webp$/, '.jpg')}`);
 }
 console.log('Generated four 1200×630 cards and JPEG copies of the blog artwork.');
+
+await import('./generate-article-cards.mjs');

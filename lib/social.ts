@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import pages from './social-pages.json';
+import articleCards from './social-articles.json';
+import type { Post } from './content';
 
 export const siteUrl = 'https://www.yella.dev';
 const homeImage = {
@@ -43,4 +45,15 @@ export function pageMetadata(key: keyof typeof pages): Metadata {
       alt: `${page.heading} ${page.subtitle.replace(/\n/g, ' ')} — Naren Yellavula. Cream card with a subtle teal pattern.`,
     },
   });
+}
+
+// Existing posts have curated topic artwork. A newly added, uncurated post
+// uses the known home card until its mapping and committed artwork are ready.
+export function articleImage(post: Pick<Post, 'slug'>) {
+  const card = articleCards[post.slug as keyof typeof articleCards];
+  if (card) return {
+    url: `/social/articles/${post.slug}-v1.png`,
+    width: 1200, height: 630, type: 'image/png', alt: card.alt,
+  };
+  return undefined; // socialMetadata supplies the committed home image.
 }

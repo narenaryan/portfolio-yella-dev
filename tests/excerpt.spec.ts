@@ -1,3 +1,4 @@
+import { articleImage, socialMetadata } from '../lib/social';
 import { expect, test } from '@playwright/test';
 import { markdownExcerpt } from '../lib/excerpt';
 import { getPosts } from '../lib/content';
@@ -23,4 +24,10 @@ test('existing article uses its opening paragraph rather than a section heading'
     expect(post.excerpt).not.toContain('<img');
     expect(post.excerpt).not.toContain('](');
   }
+});
+
+
+test('a new uncurated post falls back to a committed card rather than a guessed image path', () => {
+  const metadata = socialMetadata({ title: 'Future post', description: 'A future article.', path: '/blog/future-post/', image: articleImage({ slug: 'future-post' }) });
+  expect(metadata.openGraph?.images).toEqual([expect.objectContaining({ url: 'https://www.yella.dev/social/home-v1.png', width: 1200, height: 630, type: 'image/png' })]);
 });

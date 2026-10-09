@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import { test } from 'node:test';
 import sharp from 'sharp';
 
 const origin = 'https://www.yella.dev';
 const pages = JSON.parse(await readFile('lib/social-pages.json', 'utf8'));
+const articles = JSON.parse(await readFile('lib/social-articles.json', 'utf8'));
 const routes = ['/', '/about/', '/books/', '/projects/', '/blog/', '/photography/', '/links/', '/about/books/', '/about/projects/'];
 for (const entry of await readdir('out/blog', { withFileTypes: true })) {
   if (entry.isDirectory()) routes.push(`/blog/${entry.name}/`);
@@ -49,6 +51,15 @@ for (const route of routes) {
       assert.equal(info.height, 630);
       assert.equal(meta('og:description'), pages[key].description);
     }
+    const slug = route.match(/^\/blog\/([^/]+)\/$/)?.[1];
+    if (slug) {
+      assert.ok(articles[slug], `Missing artwork mapping for ${slug}`);
+      assert.equal(image, `${origin}/social/articles/${slug}-v1.png`);
+      assert.equal(info.width, 1200);
+      assert.equal(info.height, 630);
+      assert.equal(meta('og:image:alt'), articles[slug].alt);
+      assert.equal(meta('og:title'), `${articles[slug].titleLines.join(' ')} | Naren Yellavula`);
+    }
     if (canonicalPath === '/books/' || canonicalPath === '/projects/') {
       assert.ok(html.includes(canonicalPath === '/books/' ? 'Building RESTful Web services with Go' : 'Whispr'));
       assert.ok(html.includes('href="/books/"'));
@@ -61,4 +72,16 @@ test('legacy card-image URLs still export their original WebP bytes', async () =
   for (const file of await readdir('static/card-images/blog')) {
     assert.deepEqual(await readFile(`out/card-images/blog/${file}`), await readFile(`static/card-images/blog/${file}`));
   }
+});
+
+
+test('every exported blog post has exactly one unique curated PNG', async () => {
+  const slugs = routes.map(route => route.match(/^\/blog\/([^/]+)\/$/)?.[1]).filter(Boolean).sort();
+  assert.deepEqual(Object.keys(articles).sort(), slugs);
+  const hashes = new Set();
+  for (const slug of slugs) {
+    const bytes = await readFile(`out/social/articles/${slug}-v1.png`);
+    hashes.add(createHash('sha256').update(bytes).digest('hex'));
+  }
+  assert.equal(hashes.size, slugs.length, 'Every post must have a distinct image');
 });
