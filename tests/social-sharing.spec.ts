@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-for (const route of ['/', '/about/', '/books/', '/projects/', '/blog/building-blog-with-zola-ground-up/']) {
+for (const route of ['/', '/about/', '/books/', '/projects/', '/blog/building-blog-with-zola-ground-up/', '/blog/develop-software-with-ai-2025/', '/blog/what-ai-needs-from-you/', '/blog/failure-resume/']) {
   test(`${route} exposes its preview without JavaScript and serves image bytes`, async ({ browser, request }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();

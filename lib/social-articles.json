@@ -1,0 +1,23 @@
+{
+  "building-blog-with-zola-ground-up": {
+    "pattern": "architecture",
+    "label": "WEB & ARCHITECTURE",
+    "titleLines": ["How I built this", "portfolio ground up", "(TLDR)"],
+    "subtitleLines": ["Markdown, audio and a static site —", "built from the ground up."],
+    "alt": "How I built this portfolio ground up (TLDR). Cream card with a teal and sand grid of nested squares representing a site's building blocks."
+  },
+  "develop-software-with-ai-2025": {
+    "pattern": "debugging",
+    "label": "SOFTWARE & AI",
+    "titleLines": ["How to develop", "software with AI", "in 2025"],
+    "subtitleLines": ["Co-pilot, debugger, time saver.", "Three ways I use AI to build software."],
+    "alt": "How to develop software with AI in 2025. Cream card with teal maze paths suggesting debugging and finding a way through a problem."
+  },
+  "what-ai-needs-from-you": {
+    "pattern": "collaboration",
+    "label": "AI & COLLABORATION",
+    "titleLines": ["What AI really needs", "from you while", "collaborating"],
+    "subtitleLines": ["Better context. Clearer intent.", "More thoughtful collaboration."],
+    "alt": "What AI really needs from you while collaborating. Cream card with flowing teal and sand contours suggesting connected ideas and context."
+  }
+}

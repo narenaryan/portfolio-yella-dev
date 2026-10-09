@@ -5,6 +5,7 @@ import sharp from 'sharp';
 
 const origin = 'https://www.yella.dev';
 const pages = JSON.parse(await readFile('lib/social-pages.json', 'utf8'));
+const articles = JSON.parse(await readFile('lib/social-articles.json', 'utf8'));
 const routes = ['/', '/about/', '/books/', '/projects/', '/blog/', '/photography/', '/links/', '/about/books/', '/about/projects/'];
 for (const entry of await readdir('out/blog', { withFileTypes: true })) {
   if (entry.isDirectory()) routes.push(`/blog/${entry.name}/`);
@@ -48,6 +49,14 @@ for (const route of routes) {
       assert.equal(info.width, 1200);
       assert.equal(info.height, 630);
       assert.equal(meta('og:description'), pages[key].description);
+    }
+    const slug = route.match(/^\/blog\/([^/]+)\/$/)?.[1];
+    if (articles[slug]) {
+      assert.equal(image, `${origin}/social/articles/${slug}-v1.png`);
+      assert.equal(info.width, 1200);
+      assert.equal(info.height, 630);
+      assert.equal(meta('og:image:alt'), articles[slug].alt);
+      assert.equal(meta('og:title'), `${articles[slug].titleLines.join(' ')} | Naren Yellavula`);
     }
     if (canonicalPath === '/books/' || canonicalPath === '/projects/') {
       assert.ok(html.includes(canonicalPath === '/books/' ? 'Building RESTful Web services with Go' : 'Whispr'));

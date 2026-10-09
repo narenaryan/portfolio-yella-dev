@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import pages from './social-pages.json';
+import articleCards from './social-articles.json';
+import type { Post } from './content';
 
 export const siteUrl = 'https://www.yella.dev';
 const homeImage = {
@@ -43,4 +45,19 @@ export function pageMetadata(key: keyof typeof pages): Metadata {
       alt: `${page.heading} ${page.subtitle.replace(/\n/g, ' ')} — Naren Yellavula. Cream card with a subtle teal pattern.`,
     },
   });
+}
+
+// Curated topic artwork is opt-in; other posts retain their selected photographs.
+export function articleImage(post: Pick<Post, 'slug' | 'title' | 'cardImage' | 'cardImageAlt'>) {
+  const card = articleCards[post.slug as keyof typeof articleCards];
+  if (card) return {
+    url: `/social/articles/${post.slug}-v1.png`,
+    width: 1200, height: 630, type: 'image/png', alt: card.alt,
+  };
+  if (!post.cardImage) return undefined;
+  return {
+    url: post.cardImage.replace('/card-images/blog/', '/social/blog/').replace(/\.webp$/, '.jpg'),
+    width: 640, height: 360, type: 'image/jpeg',
+    alt: post.cardImageAlt || post.title,
+  };
 }
