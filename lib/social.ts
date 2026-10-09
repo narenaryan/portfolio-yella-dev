@@ -47,17 +47,13 @@ export function pageMetadata(key: keyof typeof pages): Metadata {
   });
 }
 
-// Curated topic artwork is opt-in; other posts retain their selected photographs.
-export function articleImage(post: Pick<Post, 'slug' | 'title' | 'cardImage' | 'cardImageAlt'>) {
+// Existing posts have curated topic artwork. A newly added, uncurated post
+// uses the known home card until its mapping and committed artwork are ready.
+export function articleImage(post: Pick<Post, 'slug'>) {
   const card = articleCards[post.slug as keyof typeof articleCards];
   if (card) return {
     url: `/social/articles/${post.slug}-v1.png`,
     width: 1200, height: 630, type: 'image/png', alt: card.alt,
   };
-  if (!post.cardImage) return undefined;
-  return {
-    url: post.cardImage.replace('/card-images/blog/', '/social/blog/').replace(/\.webp$/, '.jpg'),
-    width: 640, height: 360, type: 'image/jpeg',
-    alt: post.cardImageAlt || post.title,
-  };
+  return undefined; // socialMetadata supplies the committed home image.
 }

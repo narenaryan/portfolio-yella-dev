@@ -18,9 +18,10 @@ with a quiet geometric grid. Titles and subtitles stay inset from the image edge
 | Projects | Built to be useful. | Open-source tools for security, software and working with AI. |
 
 The copy is grounded in the existing home, biography, books and projects content.
-Three articles opt into curated topic artwork through `lib/social-articles.json`.
-Other blog posts keep their selected photographs and full 640×360 framing,
-converted from WebP to JPEG for crawler compatibility. Other section pages use the home
+All eight current blog posts have curated topic artwork through
+`lib/social-articles.json`. Legacy photo-based JPEGs remain available at their
+original social-image URLs. New, uncurated posts safely use the home PNG until
+their own artwork is added; coverage tests flag missing mappings. Other section pages use the home
 artwork with their own titles, descriptions and canonical URLs.
 
 ## Updating artwork
@@ -76,9 +77,10 @@ and collaboration patterns. Those panels live in `assets/social-art/` and are
 composed by `scripts/generate-article-cards.mjs` as 1200×630 PNGs. The normal build
 only copies committed images; Go is not a build or hosting dependency.
 
-Article titles are preserved in full and validated against the original metadata.
-The 420×420 pattern panel is uncropped and isolated from the text. All three
-outputs were reviewed at full, 600px and 400px widths. Seeds, palettes, versions,
-repeat hashes, and the scoped modern-Go randomness compatibility setting are
-documented with the tool. Only the three curated slugs get new PNG metadata;
-article Markdown, audio inputs and workflows stay unchanged in this follow-up.
+Article titles are preserved in full and validated against the Markdown source.
+The 420×420 pattern panel is uncropped and isolated from the text. All eight
+outputs were reviewed on a contact sheet, with long titles also checked at 400px.
+Browser tests measure title/subtitle widths and the footer boundary with the
+vendored fonts. Seeds, palettes, versions, repeat hashes, and the scoped modern-Go
+randomness compatibility setting are documented with the tool. Article Markdown,
+audio inputs and workflows stay unchanged in this follow-up.

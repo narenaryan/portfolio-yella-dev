@@ -1,23 +1,137 @@
 {
   "building-blog-with-zola-ground-up": {
-    "pattern": "architecture",
     "label": "WEB & ARCHITECTURE",
-    "titleLines": ["How I built this", "portfolio ground up", "(TLDR)"],
-    "subtitleLines": ["Markdown, audio and a static site —", "built from the ground up."],
-    "alt": "How I built this portfolio ground up (TLDR). Cream card with a teal and sand grid of nested squares representing a site's building blocks."
+    "titleLines": [
+      "How I built this",
+      "portfolio ground up",
+      "(TLDR)"
+    ],
+    "subtitleLines": [
+      "Markdown, audio and a static site —",
+      "built from the ground up."
+    ],
+    "alt": "How I built this portfolio ground up (TLDR). Cream card with a teal and sand grid of nested squares representing a site's building blocks.",
+    "engine": "grid",
+    "seed": 20260222,
+    "metaphor": "Modular building blocks and site architecture.",
+    "titleSize": 50
   },
   "develop-software-with-ai-2025": {
-    "pattern": "debugging",
     "label": "SOFTWARE & AI",
-    "titleLines": ["How to develop", "software with AI", "in 2025"],
-    "subtitleLines": ["Co-pilot, debugger, time saver.", "Three ways I use AI to build software."],
-    "alt": "How to develop software with AI in 2025. Cream card with teal maze paths suggesting debugging and finding a way through a problem."
+    "titleLines": [
+      "How to develop",
+      "software with AI",
+      "in 2025"
+    ],
+    "subtitleLines": [
+      "Co-pilot, debugger, time saver.",
+      "Three ways I use AI to build software."
+    ],
+    "alt": "How to develop software with AI in 2025. Cream card with teal maze paths suggesting debugging and finding a way through a problem.",
+    "engine": "maze",
+    "seed": 20251125,
+    "metaphor": "Debugging and navigating software problems.",
+    "titleSize": 50
   },
   "what-ai-needs-from-you": {
-    "pattern": "collaboration",
     "label": "AI & COLLABORATION",
-    "titleLines": ["What AI really needs", "from you while", "collaborating"],
-    "subtitleLines": ["Better context. Clearer intent.", "More thoughtful collaboration."],
-    "alt": "What AI really needs from you while collaborating. Cream card with flowing teal and sand contours suggesting connected ideas and context."
+    "titleLines": [
+      "What AI really needs",
+      "from you while",
+      "collaborating"
+    ],
+    "subtitleLines": [
+      "Better context. Clearer intent.",
+      "More thoughtful collaboration."
+    ],
+    "alt": "What AI really needs from you while collaborating. Cream card with flowing teal and sand contours suggesting connected ideas and context.",
+    "engine": "contours",
+    "seed": 20260412,
+    "metaphor": "Connected ideas, context and complexity.",
+    "titleSize": 50
+  },
+  "failure-resume": {
+    "engine": "maze",
+    "seed": 20250622,
+    "metaphor": "Wrong turns, learning and finding another way.",
+    "label": "LESSONS FROM FAILURE",
+    "titleSize": 50,
+    "titleLines": [
+      "My Failure Resume"
+    ],
+    "subtitleLines": [
+      "Seven mistakes from my engineering career.",
+      "What I learned, and what helped."
+    ],
+    "alt": "My Failure Resume. Cream card with teal maze paths representing wrong turns and learning from engineering mistakes."
+  },
+  "read-my-past-writings": {
+    "engine": "grid",
+    "seed": 20251221,
+    "metaphor": "A collection of earlier writings in a new home.",
+    "label": "FROM THE ARCHIVE",
+    "titleSize": 47,
+    "titleLines": [
+      "Read my past writings",
+      "on Medium and",
+      "Substack"
+    ],
+    "subtitleLines": [
+      "Earlier essays, and why I moved",
+      "to a space of my own."
+    ],
+    "alt": "Read my past writings on Medium and Substack. Cream card with a teal and sand square grid representing a collection of earlier essays."
+  },
+  "run-multi-agent-software-project": {
+    "engine": "orbits",
+    "seed": 20260405,
+    "metaphor": "Specialized workers coordinated around shared goals.",
+    "label": "AGENTS & ORCHESTRATION",
+    "titleSize": 44,
+    "titleLines": [
+      "What Running a",
+      "Multi-Agent Software",
+      "Project Actually",
+      "Looks Like"
+    ],
+    "subtitleLines": [
+      "Coordinated agents, shared contracts",
+      "and evidence that the work is done."
+    ],
+    "alt": "What Running a Multi-Agent Software Project Actually Looks Like. Cream card with a grid of circular hubs suggesting coordinated teams of specialized agents."
+  },
+  "weekly-learnings-week-15-2026": {
+    "engine": "orbits",
+    "seed": 20260408,
+    "metaphor": "Different mental models and ideas viewed side by side.",
+    "label": "WEEKLY LEARNINGS · 15 / 2026",
+    "titleSize": 37,
+    "titleLines": [
+      "Things I Learnt This Week",
+      "(Week 15 of 2026):",
+      "Mental Models, AI Agent",
+      "Security, Future of Work,",
+      "Flat Orgs"
+    ],
+    "subtitleLines": [
+      "Four readings on clear thinking,",
+      "safer agents and how we work."
+    ],
+    "alt": "Things I Learnt This Week, Week 15 of 2026: Mental Models, AI Agent Security, Future of Work, Flat Orgs. Cream card with circular diagrams representing different mental models."
+  },
+  "never-complain": {
+    "engine": "waves",
+    "seed": 20261008,
+    "metaphor": "Fleeting reactions and recurring patterns of complaint.",
+    "label": "REFLECTIONS",
+    "titleSize": 50,
+    "titleLines": [
+      "Never Complain"
+    ],
+    "subtitleLines": [
+      "On ego, recurring complaints",
+      "and accepting reality."
+    ],
+    "alt": "Never Complain. Cream card with teal and sand dotted waves suggesting fleeting reactions and recurring patterns of complaint."
   }
 }

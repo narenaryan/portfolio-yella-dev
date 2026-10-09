@@ -1,0 +1,23 @@
+{
+  "toolchain": "Go 1.26.2; Node 24.6.0; locked Next.js 16.3.6",
+  "panels": {
+    "building-blog-with-zola-ground-up": "922a239fe61d17e2045d6243ce280f15e34d08239aedfd6c6695ce566412a125",
+    "develop-software-with-ai-2025": "8523d9b2013bdadff8ceb5be64e1f2274037469ed0e37938b4e24359153fc91a",
+    "what-ai-needs-from-you": "1e524cdd09fc932e546870d7d2b253976432b23204377aab6afc4afba0368932",
+    "failure-resume": "d87f6554e90f3b959bccc506acca4ebf7c6fa0f1b6c75fc0db3b0bbcd9162818",
+    "read-my-past-writings": "26eab31808e727b035998879ae47ad2b9da7eca601bba246de239203a0bb7cae",
+    "run-multi-agent-software-project": "c7a46179442aabd05bce9dc59d45728580607d7cc9bd3458fbeeee153cbc296c",
+    "weekly-learnings-week-15-2026": "5b350c68930e210d61a0e3915d35d10fd6b2af64966fe4d49418df1f1f70fc86",
+    "never-complain": "36e8a3d8f83f0199a9fbb139816c0818f8b62d0553efe149d83a60713ed3c4bc"
+  },
+  "cards": {
+    "building-blog-with-zola-ground-up": "88eec322c9e79a2b801cf12240bd8f3b210536584e80bea6af46c5a300ae4d67",
+    "develop-software-with-ai-2025": "d0fdb0979e6452518ca50fca06738e457d2bdf6abbe53e7145ca3bfee5f9e3ea",
+    "what-ai-needs-from-you": "3f3ec9b20ca4c66debf72604b66ccf28867f9abca80ad478d776e1ea25efbeb4",
+    "failure-resume": "3ebcf0e3bf2164945beef55dc76a19b4cd6326a2cd8d27d8e6a269e166ab2a12",
+    "read-my-past-writings": "1f2ad4aa5b9c82cb43eb36afe286f1cc3ffff8331b944f09643c1ad0f3b78ca8",
+    "run-multi-agent-software-project": "035c50138ea58daa60d055551587c362744c8485876671d1b8ca3e3f0284db1e",
+    "weekly-learnings-week-15-2026": "348cf6ba676a02c55840cef056202b08da604df5df83701dc58f3e12cc6739e6",
+    "never-complain": "f98f8afd0501e1b77d6dbd374f07da87fc9980577c55848e47f4f31837879927"
+  }
+}
