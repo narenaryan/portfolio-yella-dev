@@ -1,6 +1,9 @@
+import { pageMetadata } from '@/lib/social';
 import Link from 'next/link';
 import { getPosts } from '@/lib/content';
 import { PostCard } from '@/components/PostCard';
+
+export const metadata = pageMetadata('home');
 
 export default async function Home() {
   const posts = (await getPosts()).slice(0, 3);

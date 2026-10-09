@@ -1,3 +1,4 @@
+import { markdownExcerpt } from './excerpt';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -32,16 +33,6 @@ function parseFile(filePath: string) {
   });
 }
 
-function excerpt(markdown: string) {
-  return markdown
-    .replace(/<[^>]+>/g, '')
-    .replace(/[#*_`>\[\]()]/g, '')
-    .split('\n')
-    .map((line) => line.trim())
-    .find(Boolean)
-    ?.slice(0, 180) ?? '';
-}
-
 export async function getPosts(): Promise<Post[]> {
   const dir = path.join(contentDir, 'blog');
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && f !== '_index.md');
@@ -51,7 +42,7 @@ export async function getPosts(): Promise<Post[]> {
       title: parsed.data.title,
       slug: parsed.data.slug ?? file.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, ''),
       date: String(parsed.data.date),
-      excerpt: excerpt(parsed.content),
+      excerpt: String(parsed.data.description || markdownExcerpt(parsed.content) || parsed.data.title),
       html: await renderMarkdown(parsed.content),
       cardImage: parsed.data.extra?.card_image,
       cardImageAlt: parsed.data.extra?.card_image_alt,

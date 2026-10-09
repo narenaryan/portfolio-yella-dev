@@ -5,7 +5,7 @@ date = "2026-04-05"
 
 [extra]
 card_image = "/card-images/blog/run-multi-agent-software-project.webp"
-card_image_alt = "Airplane wing above a snowy runway"
+card_image_alt = "Glass-and-steel roof above a transit terminal"
 +++
 
 <img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/airport-snow.jpeg" alt="Airplane wing above a snowy runway" />

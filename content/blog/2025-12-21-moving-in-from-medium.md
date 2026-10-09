@@ -5,7 +5,7 @@ date = "2025-12-21"
 
 [extra]
 card_image = "/card-images/blog/read-my-past-writings.webp"
-card_image_alt = "Orange cone beside a coiled black cable"
+card_image_alt = "Orange traffic cone hanging from overhead cables on a city street"
 +++
 
 <img width="1600" height="900" src="https://d3bphourhbt2ew.cloudfront.net/images/vlc-wire.jpg" alt="VLC media player wireframe illustration" />
