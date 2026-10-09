@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const port = process.env.STATIC_EXPORT ? 4173 : 3000;
+const port = Number(process.env.TEST_PORT || (process.env.STATIC_EXPORT ? 4173 : 3000));
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
