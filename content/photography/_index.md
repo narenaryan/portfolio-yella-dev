@@ -6,6 +6,26 @@ weight = 99
 intro = "City life, architecture, and the landscapes in between. A collection of moments from my wanderings with a camera."
 
 [[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/fisherman-alameda.jpg"
+alt = "A fisherman by the water in Alameda"
+caption = "A fisherman by the water in Alameda"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/skeleton.jpg"
+alt = "A skeleton on display"
+caption = "A skeleton on display"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/red-umbrella.jpg"
+alt = "A red umbrella"
+caption = "A red umbrella"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/canadian-goose.jpg"
+alt = "A Canada goose"
+caption = "A Canada goose"
+
+[[extra.photos]]
 src = "https://d3bphourhbt2ew.cloudfront.net/images/alameda-beach.jpg"
 alt = "A beautiful view in Alameda beach"
 caption = "A beautiful view in Alameda beach"
