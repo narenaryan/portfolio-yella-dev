@@ -50,8 +50,8 @@ lib/content.ts          Markdown/TOML content loader
 content/blog/*.md       Blog posts
 content/about/*.md      About, books, and projects content
 content/photography/    Photography gallery metadata
-static/                 Source static assets retained from the old Zola site
-public/                 Public assets served by Next.js
+static/                 Source assets copied into public/ before builds
+public/                 Generated public assets (gitignored)
 scripts/                TTS generation scripts
 tests/                  Playwright smoke tests
 ```
@@ -152,7 +152,3 @@ Workflow files:
 Required repo secret for TTS workflows:
 
 - `AWS_ROLE_ARN`
-
-## Notes
-
-The old Zola theme and config are still present in the repository for now, but the active site is the Next.js app. Amplify deploys the Next.js static export from `out/`.
