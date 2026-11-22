@@ -6,6 +6,21 @@ weight = 99
 intro = "City life, architecture, and the landscapes in between. A collection of moments from my wanderings with a camera."
 
 [[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/sea-gulls-alameda.jpg"
+alt = "Seagulls flying over the Alameda shoreline beneath a colorful cloudy sky"
+caption = "Seagulls over the Alameda shoreline"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/sf-tower-fog.jpg"
+alt = "Salesforce Tower disappearing into dense fog in San Francisco"
+caption = "Salesforce Tower disappearing into the fog, San Francisco"
+
+[[extra.photos]]
+src = "https://d3bphourhbt2ew.cloudfront.net/images/white-boats-pacific.jpg"
+alt = "White sailboats crossing blue water beneath rugged coastal cliffs"
+caption = "Sailboats on the Pacific"
+
+[[extra.photos]]
 src = "https://d3bphourhbt2ew.cloudfront.net/images/fisherman-alameda.jpg"
 alt = "A fisherman by the water in Alameda"
 caption = "A fisherman by the water in Alameda"
