@@ -12,6 +12,6 @@ export default function PhotographyPage() {
       <p className="photo-intro">{gallery.intro}</p>
       <p className="photo-usage">Human-generated, Light captured through lens, free to use (No selling, please!)</p>
     </section>
-    <PhotoGallery photos={gallery.photos.map((photo) => ({ src: photo.src, alt: photo.alt, caption: photo.caption }))} />
+    <PhotoGallery photos={gallery.photos.map((photo) => ({ src: photo.src, alt: photo.alt, caption: photo.caption, layout: photo.layout }))} />
   </main>;
 }

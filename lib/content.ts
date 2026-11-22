@@ -59,6 +59,6 @@ export function getPhotography() {
   return {
     title: parsed.data.title,
     intro: parsed.data.extra?.intro as string,
-    photos: parsed.data.extra?.photos as Array<{ src: string; alt: string; caption: string }>,
+    photos: parsed.data.extra?.photos as Array<{ src: string; alt: string; caption: string; layout?: 'half' }>,
   };
 }

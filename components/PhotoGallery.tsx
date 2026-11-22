@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-type Photo = { src: string; alt: string; caption: string };
+type Photo = { src: string; alt: string; caption: string; layout?: 'half' };
 
 export function PhotoGallery({ photos }: { photos: Photo[] }) {
   const [active, setActive] = useState<number | null>(null);
@@ -31,7 +31,7 @@ export function PhotoGallery({ photos }: { photos: Photo[] }) {
 
   return <>
     <div className="photo-grid">
-      {photos.map((photo, index) => <figure key={photo.src} className="photo-card">
+      {photos.map((photo, index) => <figure key={photo.src} className={`photo-card${photo.layout === 'half' ? ' photo-card--half' : ''}`}>
         <button type="button" className="photo-open" onClick={() => setActive(index)} aria-label={`Open ${photo.caption}`}>
           <Image src={photo.src} alt={photo.alt} width={900} height={700} />
         </button>
