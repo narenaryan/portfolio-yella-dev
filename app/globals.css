@@ -67,6 +67,13 @@ a:hover { color: var(--link); }
   font-size: 20px;
   line-height: 1.6;
 }
+.photo-usage {
+  max-width: 640px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+}
 
 .grid { display: block; }
 .card {
